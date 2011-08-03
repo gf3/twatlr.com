@@ -15,27 +15,29 @@
 
 <head>
   <title>Twatlr - Share Twitter Conversations</title>
-  <link href=/webpage.css rel=stylesheet type=text/css>
-</head>
+  <link href=/normalize.css rel=stylesheet>
+  <link href=/webpage.css rel=stylesheet>
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:700&text=Twatlr%20Share%20Twitter%20Conversations' rel=stylesheet>
 
 <body>
   <header>
     <a href=/>
       <h1>Twatlr</h1>
     </a>
-    <p>Share Twitter Conversations</p>
   </header>
 
-  <section>
-    <form method=get action=/thread>
-      <input type=url name=tweet id=tweet placeholder=http://twitter.com/gf3/status/4957638324387840>
-      <input type=submit value="Get Thread">
-    </form>
-  </section>
+  <div id="main">
+    <section>
+      <h2>Share Twitter Conversations</h2>
+      <p>Enter the URL of a tweet below:</p>
+      <form method=get action=/thread>
+        <input type=url name=tweet id=tweet placeholder=http://twitter.com/gf3/status/4957638324387840 tabindex=1>
+        <input type=submit value="Get Thread &rarr;" tabindex=2>
+      </form>
+    </section>
 
-  <footer>
-    <p>Built with love by <a href=http://gf3.ca>Gianni "gf3" Chiappetta</a></p>
-  </footer>
+    <footer>
+      <p>Built with love by <a href=http://gf3.ca>Gianni "gf3" Chiappetta</a>.</p>
+    </footer>
+  </div>
 
-</body>
-</html>

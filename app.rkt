@@ -30,7 +30,8 @@
   (response/full
     200 #"Okay"
     (current-seconds) TEXT/HTML-MIME-TYPE
-    (list (make-header #"Content-Length" (string->bytes/utf-8 (number->string (string-length content)))))
+    (list (make-header #"Content-Length" (string->bytes/utf-8 (number->string (string-length content))))
+          (make-header #"X-LOL" #"NO U"))
     (list (string->bytes/utf-8 content))))
 
 (define (url->request u)
@@ -42,8 +43,6 @@
 ; 
 ; (write (twatlr-dispatch
 ;    (url->request "http://gf3.ca/thread/1234abcd")))
-
-; (serve/dispatch twatlr-dispatch)
 
 (serve/servlet twatlr-dispatch
   #:extra-files-paths (list (build-path "./public"))

@@ -1,2 +1,110 @@
+@import "compass/css3"
+@import "compass/typography"
+
 html
-  background: #E8E8E8
+  background: #D4D4D4
+  line-height: 18px
+  color: hsl( 0, 0%, 27% )
+
+body
+  margin: 0 auto
+  width: 640px
+
+a
+  +link-colors( hsl( 0, 0%, 22% ), hsl( 0, 0%, 40% ), hsl( 0, 0%, 22% ), hsl( 0, 0%, 22% ), hsl( 0, 0%, 22% ) )
+  text-decoration: underline
+
+header
+  a
+    +hover-link
+
+h1, h2, h3
+  font-family: 'Josefin Sans', sans-serif
+  font-weight: 700
+  text-shadow: 0 2px 0 #FFF
+
+h1
+  line-height: 18px * 3
+  font-size: 48px
+  color: hsl( 325, 80%, 31% )
+  text-shadow: 0 2px 0 hsla( 0, 0%, 100%, .6 )
+
+// Box
+#main
+  position: relative
+  padding: 9px 0 0 0
+  +border-radius( 5px )
+  background: #ECECEC
+  box-shadow: 0 1px 2px hsla( 0, 0%, 0%, .6 )
+  overflow: hidden
+
+  h2
+    margin-left: 18px
+  p
+    margin: 0 18px 9px 18px
+
+  section
+    p
+      margin-bottom: 36px
+
+// Form
+form
+
+  input:focus
+    outline: 3px solid #F8E65E
+
+  input[type=url]
+    display: block
+    margin-bottom: 18px * 3
+    padding: 9px 0 9px 18px
+    -webkit-appearance: none
+    width: 640px - 18px
+    height: 36px
+    line-height: 36px
+    border: 0
+    border-top:    1px solid hsl( 0, 0%, 67% )
+    border-bottom: 1px solid hsl( 0, 0%, 67% )
+    font-size: 28px
+    background: #FFF
+    color: #000
+
+    &:invalid
+      color: red
+
+    &:focus
+      color: #000
+
+  input[type=submit]
+    position: absolute
+    bottom: -1px
+    right: -1px
+    padding: 9px 18px
+    -webkit-appearance: none
+    height: 18px
+    line-height: 18px
+    border: 1px solid hsl( 0, 0%, 67% )
+    +border-bottom-right-radius( 5px )
+    box-sizing: content-box
+    +background-image( linear-gradient( #FFF, #FFF 50%, #F2F2F2 50% ) )
+    font-weight: bold
+    text-shadow: 0 1px 0 #FFF
+
+    &:hover, &:focus
+      +background-image( linear-gradient( darken( #FFF, 15% ), darken( #FFF, 15% ) 50%, darken( #F2F2F2, 25% ) 50% ) )
+    &:active
+      +background-image( linear-gradient( #F2F2F2, #F2F2F2 50%, #FFF 50% ) )
+      text-shadow: 0 -1px 0 #FFF
+
+// Footer
+#main footer
+  padding: 9px 0
+  border-top: 1px solid hsl( 0, 0%, 67% )
+  +border-bottom-radius( 5px )
+  background-clip: padding-box
+  background: #FAFAFA
+  color: hsl( 0, 0%, 60% )
+  text-shadow: 0 1px 0 #FFF
+
+  p:last-child
+    margin-bottom: 0
+
