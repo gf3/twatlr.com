@@ -1,6 +1,14 @@
 @import "compass/css3"
 @import "compass/typography"
 
+=josefin
+  font-family: 'Josefin Sans', sans-serif
+  font-weight: 700
+
+=marker
+  font-family: 'Permanent Marker', cursive
+  font-weight: 400
+
 html
   background: #D4D4D4
   line-height: 18px
@@ -19,37 +27,75 @@ header
     +hover-link
 
 h1, h2, h3
-  font-family: 'Josefin Sans', sans-serif
-  font-weight: 700
   text-shadow: 0 2px 0 #FFF
 
 h1
+  +marker
   line-height: 18px * 3
   font-size: 48px
   color: hsl( 325, 80%, 31% )
   text-shadow: 0 2px 0 hsla( 0, 0%, 100%, .6 )
 
+h2
+  margin: 0 0 18px 0
+  font-size: 24px
+  line-height: 36px
+
 // Box
 #main
   position: relative
-  padding: 9px 0 0 0
+  padding: 18px 0 0 0
   +border-radius( 5px )
   background: #ECECEC
   box-shadow: 0 1px 2px hsla( 0, 0%, 0%, .6 )
-  overflow: hidden
 
   h2
     margin-left: 18px
+
   p
     margin: 0 18px 9px 18px
 
-  section
-    p
-      margin-bottom: 36px
+  label
+    position: relative
+    display: block
+    margin-bottom: 18px
+    margin-left: -2px
+    padding: 9px 0
+    width: 640px + 2
+    border-right: 1px solid hsla( 0, 0%, 100%, .3 )
+    border-left: 1px solid hsla( 0, 0%, 100%, .3 )
+    +border-top-radius( 3px )
+    background: hsl( 192, 74%, 46% )
+    color: #FFF
+    font-weight: bold
+    text-align: center
+    text-shadow: 0 -1px 0 hsla( 0, 0%, 0%, .6 )
+    box-shadow: inset 0 1px 0 hsla( 0, 0%, 100%, .8 ), 0 1px 2px hsla( 0, 0%, 0%, .6 )
+
+    &::before, &::after
+      content: " "
+      position: absolute
+      bottom: -3px
+      display: block
+      width: 18px * 2
+      height: 18px * 2
+      border: 0
+      background: hsl( 192, 74%, 35% )
+
+    &::before
+      left: ( -18px * 2 ) - 1
+      box-shadow: -1px 1px 2px hsla( 0, 0%, 0%, .6 )
+      +background-image( linear-gradient( left, hsl( 192, 74%, 46% ), hsl( 192, 74%, 35% ) ) )
+      +skewY( 7deg )
+
+    &::after
+      right: ( -18px * 2 ) - 1
+      box-shadow: 1px 1px 2px hsla( 0, 0%, 0%, .6 )
+      +background-image( linear-gradient( left, hsl( 192, 74%, 35% ), hsl( 192, 74%, 46% ) ) )
+      +skewY( -7deg )
 
 // Form
 form
-
   input:focus
     outline: 3px solid #F8E65E
 
@@ -76,24 +122,25 @@ form
 
   input[type=submit]
     position: absolute
-    bottom: -1px
-    right: -1px
+    bottom: 0
+    right: 0
     padding: 9px 18px
     -webkit-appearance: none
     height: 18px
     line-height: 18px
-    border: 1px solid hsl( 0, 0%, 67% )
+    border: 0
+    border-left: 1px solid hsl( 0, 0%, 67% )
     +border-bottom-right-radius( 5px )
     box-sizing: content-box
-    +background-image( linear-gradient( #FFF, #FFF 50%, #F2F2F2 50% ) )
+    +background-image( linear-gradient( lighten( hsl( 325, 80%, 31% ), 10% ), lighten( hsl( 325, 80%, 31% ), 10% ) 50%, hsl( 325, 80%, 31% ) 50% ) )
     font-weight: bold
-    text-shadow: 0 1px 0 #FFF
+    color: #FFF
+    text-shadow: 0 -1px 0 hsla( 0, 0%, 0%, .6 )
 
     &:hover, &:focus
-      +background-image( linear-gradient( darken( #FFF, 15% ), darken( #FFF, 15% ) 50%, darken( #F2F2F2, 25% ) 50% ) )
+      +background-image( linear-gradient( hsl( 325, 80%, 31% ), hsl( 325, 80%, 31% ) 50%, darken( hsl( 325, 80%, 31% ), 10% ) 50% ) )
     &:active
-      +background-image( linear-gradient( #F2F2F2, #F2F2F2 50%, #FFF 50% ) )
-      text-shadow: 0 -1px 0 #FFF
+      +background-image( linear-gradient( darken( #FFF, 15% ), darken( #FFF, 15% ) 50%, darken( #F2F2F2, 25% ) 50% ) )
 
 // Footer
 #main footer

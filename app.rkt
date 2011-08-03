@@ -47,5 +47,7 @@
 (serve/servlet twatlr-dispatch
   #:extra-files-paths (list (build-path "./public"))
   #:log-file (build-path "./log/app.log")
-  #:servlet-regexp #rx"")
+  #:servlet-regexp #rx""
+  #:servlet-path "/"
+  #:launch-browser? #f)
 

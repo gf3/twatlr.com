@@ -1,17 +1,17 @@
-/* line 4, ../webpage.sass */
+/* line 12, ../webpage.sass */
 html {
   background: #d4d4d4;
   line-height: 18px;
   color: #454545;
 }
 
-/* line 9, ../webpage.sass */
+/* line 17, ../webpage.sass */
 body {
   margin: 0 auto;
   width: 640px;
 }
 
-/* line 13, ../webpage.sass */
+/* line 21, ../webpage.sass */
 a {
   color: #383838;
   text-decoration: underline;
@@ -33,7 +33,7 @@ a:active {
   color: #383838;
 }
 
-/* line 18, ../webpage.sass */
+/* line 26, ../webpage.sass */
 header a {
   text-decoration: none;
 }
@@ -42,25 +42,32 @@ header a:hover {
   text-decoration: underline;
 }
 
-/* line 21, ../webpage.sass */
+/* line 29, ../webpage.sass */
 h1, h2, h3 {
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 700;
   text-shadow: 0 2px 0 white;
 }
 
-/* line 26, ../webpage.sass */
+/* line 32, ../webpage.sass */
 h1 {
+  font-family: "Permanent Marker", cursive;
+  font-weight: 400;
   line-height: 54px;
   font-size: 48px;
   color: #8e105a;
   text-shadow: 0 2px 0 rgba(255, 255, 255, 0.6);
 }
 
-/* line 33, ../webpage.sass */
+/* line 39, ../webpage.sass */
+h2 {
+  margin: 0 0 18px 0;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+/* line 45, ../webpage.sass */
 #main {
   position: relative;
-  padding: 9px 0 0 0;
+  padding: 18px 0 0 0;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -o-border-radius: 5px;
@@ -69,26 +76,93 @@ h1 {
   border-radius: 5px;
   background: #ececec;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-  overflow: hidden;
 }
-/* line 41, ../webpage.sass */
+/* line 52, ../webpage.sass */
 #main h2 {
   margin-left: 18px;
 }
-/* line 43, ../webpage.sass */
+/* line 55, ../webpage.sass */
 #main p {
   margin: 0 18px 9px 18px;
 }
-/* line 47, ../webpage.sass */
-#main section p {
-  margin-bottom: 36px;
+/* line 58, ../webpage.sass */
+#main label {
+  position: relative;
+  display: block;
+  margin-bottom: 18px;
+  margin-left: -2px;
+  padding: 9px 0;
+  width: 642px;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  -moz-border-radius-topleft: 3px;
+  -webkit-border-top-left-radius: 3px;
+  -o-border-top-left-radius: 3px;
+  -ms-border-top-left-radius: 3px;
+  -khtml-border-top-left-radius: 3px;
+  border-top-left-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -webkit-border-top-right-radius: 3px;
+  -o-border-top-right-radius: 3px;
+  -ms-border-top-right-radius: 3px;
+  -khtml-border-top-right-radius: 3px;
+  border-top-right-radius: 3px;
+  background: #1ea9cc;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+/* line 75, ../webpage.sass */
+#main label::before, #main label::after {
+  content: " ";
+  position: absolute;
+  bottom: -3px;
+  display: block;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  background: #17819b;
+}
+/* line 85, ../webpage.sass */
+#main label::before {
+  left: -37px;
+  box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.6);
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #1ea9cc), color-stop(100%, #17819b));
+  background-image: -webkit-linear-gradient(left, #1ea9cc, #17819b);
+  background-image: -moz-linear-gradient(left, #1ea9cc, #17819b);
+  background-image: -o-linear-gradient(left, #1ea9cc, #17819b);
+  background-image: -ms-linear-gradient(left, #1ea9cc, #17819b);
+  background-image: linear-gradient(left, #1ea9cc, #17819b);
+  -moz-transform: skewY(7deg);
+  -webkit-transform: skewY(7deg);
+  -o-transform: skewY(7deg);
+  -ms-transform: skewY(7deg);
+  transform: skewY(7deg);
+}
+/* line 91, ../webpage.sass */
+#main label::after {
+  right: -37px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #17819b), color-stop(100%, #1ea9cc));
+  background-image: -webkit-linear-gradient(left, #17819b, #1ea9cc);
+  background-image: -moz-linear-gradient(left, #17819b, #1ea9cc);
+  background-image: -o-linear-gradient(left, #17819b, #1ea9cc);
+  background-image: -ms-linear-gradient(left, #17819b, #1ea9cc);
+  background-image: linear-gradient(left, #17819b, #1ea9cc);
+  -moz-transform: skewY(-7deg);
+  -webkit-transform: skewY(-7deg);
+  -o-transform: skewY(-7deg);
+  -ms-transform: skewY(-7deg);
+  transform: skewY(-7deg);
 }
 
-/* line 53, ../webpage.sass */
+/* line 99, ../webpage.sass */
 form input:focus {
   outline: 3px solid #f8e65e;
 }
-/* line 56, ../webpage.sass */
+/* line 102, ../webpage.sass */
 form input[type=url] {
   display: block;
   margin-bottom: 54px;
@@ -104,24 +178,25 @@ form input[type=url] {
   background: white;
   color: black;
 }
-/* line 71, ../webpage.sass */
+/* line 117, ../webpage.sass */
 form input[type=url]:invalid {
   color: red;
 }
-/* line 74, ../webpage.sass */
+/* line 120, ../webpage.sass */
 form input[type=url]:focus {
   color: black;
 }
-/* line 77, ../webpage.sass */
+/* line 123, ../webpage.sass */
 form input[type=submit] {
   position: absolute;
-  bottom: -1px;
-  right: -1px;
+  bottom: 0;
+  right: 0;
   padding: 9px 18px;
   -webkit-appearance: none;
   height: 18px;
   line-height: 18px;
-  border: 1px solid #ababab;
+  border: 0;
+  border-left: 1px solid #ababab;
   -moz-border-radius-bottomright: 5px;
   -webkit-border-bottom-right-radius: 5px;
   -o-border-bottom-right-radius: 5px;
@@ -129,17 +204,27 @@ form input[type=submit] {
   -khtml-border-bottom-right-radius: 5px;
   border-bottom-right-radius: 5px;
   box-sizing: content-box;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(50%, #ffffff), color-stop(50%, #f2f2f2));
-  background-image: -webkit-linear-gradient(#ffffff, #ffffff 50%, #f2f2f2 50%);
-  background-image: -moz-linear-gradient(#ffffff, #ffffff 50%, #f2f2f2 50%);
-  background-image: -o-linear-gradient(#ffffff, #ffffff 50%, #f2f2f2 50%);
-  background-image: -ms-linear-gradient(#ffffff, #ffffff 50%, #f2f2f2 50%);
-  background-image: linear-gradient(#ffffff, #ffffff 50%, #f2f2f2 50%);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bc1576), color-stop(50%, #bc1576), color-stop(50%, #8e105a));
+  background-image: -webkit-linear-gradient(#bc1576, #bc1576 50%, #8e105a 50%);
+  background-image: -moz-linear-gradient(#bc1576, #bc1576 50%, #8e105a 50%);
+  background-image: -o-linear-gradient(#bc1576, #bc1576 50%, #8e105a 50%);
+  background-image: -ms-linear-gradient(#bc1576, #bc1576 50%, #8e105a 50%);
+  background-image: linear-gradient(#bc1576, #bc1576 50%, #8e105a 50%);
   font-weight: bold;
-  text-shadow: 0 1px 0 white;
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
 }
-/* line 92, ../webpage.sass */
+/* line 140, ../webpage.sass */
 form input[type=submit]:hover, form input[type=submit]:focus {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #8e105a), color-stop(50%, #8e105a), color-stop(50%, #600b3d));
+  background-image: -webkit-linear-gradient(#8e105a, #8e105a 50%, #600b3d 50%);
+  background-image: -moz-linear-gradient(#8e105a, #8e105a 50%, #600b3d 50%);
+  background-image: -o-linear-gradient(#8e105a, #8e105a 50%, #600b3d 50%);
+  background-image: -ms-linear-gradient(#8e105a, #8e105a 50%, #600b3d 50%);
+  background-image: linear-gradient(#8e105a, #8e105a 50%, #600b3d 50%);
+}
+/* line 142, ../webpage.sass */
+form input[type=submit]:active {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d9d9d9), color-stop(50%, #d9d9d9), color-stop(50%, #b2b2b2));
   background-image: -webkit-linear-gradient(#d9d9d9, #d9d9d9 50%, #b2b2b2 50%);
   background-image: -moz-linear-gradient(#d9d9d9, #d9d9d9 50%, #b2b2b2 50%);
@@ -147,18 +232,8 @@ form input[type=submit]:hover, form input[type=submit]:focus {
   background-image: -ms-linear-gradient(#d9d9d9, #d9d9d9 50%, #b2b2b2 50%);
   background-image: linear-gradient(#d9d9d9, #d9d9d9 50%, #b2b2b2 50%);
 }
-/* line 94, ../webpage.sass */
-form input[type=submit]:active {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f2f2f2), color-stop(50%, #f2f2f2), color-stop(50%, #ffffff));
-  background-image: -webkit-linear-gradient(#f2f2f2, #f2f2f2 50%, #ffffff 50%);
-  background-image: -moz-linear-gradient(#f2f2f2, #f2f2f2 50%, #ffffff 50%);
-  background-image: -o-linear-gradient(#f2f2f2, #f2f2f2 50%, #ffffff 50%);
-  background-image: -ms-linear-gradient(#f2f2f2, #f2f2f2 50%, #ffffff 50%);
-  background-image: linear-gradient(#f2f2f2, #f2f2f2 50%, #ffffff 50%);
-  text-shadow: 0 -1px 0 white;
-}
 
-/* line 99, ../webpage.sass */
+/* line 146, ../webpage.sass */
 #main footer {
   padding: 9px 0;
   border-top: 1px solid #ababab;
@@ -179,7 +254,7 @@ form input[type=submit]:active {
   color: #999999;
   text-shadow: 0 1px 0 white;
 }
-/* line 108, ../webpage.sass */
+/* line 155, ../webpage.sass */
 #main footer p:last-child {
   margin-bottom: 0;
 }
