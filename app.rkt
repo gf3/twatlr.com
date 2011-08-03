@@ -31,23 +31,21 @@
     `(html (head (title "Hello world!"))
            (body (p "Hey out there!")))))
 
-(define-values (home-page-tmpl) (file->string "./home-page.html"))
+(define-values (home-page-tmpl) (make-template (file->string "./home-page.html")))
 
-(define (render content)
-  (response/full
-    200 #"Okay"
-    (current-seconds) TEXT/HTML-MIME-TYPE
-    (list (make-header #"Content-Length" (string->bytes/utf-8 (number->string (string-length content))))
-          (make-header #"X-LOL" #"NO U"))
-    (list (string->bytes/utf-8 content))))
+(define (render tmpl [data (hash)])
+  (let ([output (template->string tmpl data)])
+    (response/full
+      200 #"Okay"
+      (current-seconds) TEXT/HTML-MIME-TYPE
+      (list (make-header #"Content-Length" (string->bytes/utf-8 (number->string (string-length output))))
+            (make-header #"X-LOL" #"NO U"))
+      (list (string->bytes/utf-8 output)))))
 
 (define (url->request u)
   (make-request #"GET" (string->url u) empty
                 (delay empty) #f "1.2.3.4" 80 "4.3.2.1"))
 
-; (write (twatlr-dispatch
-;    (url->request "http://gf3.ca")))
-; 
 ; (write (twatlr-dispatch
 ;    (url->request "http://gf3.ca/thread/1234abcd")))
 
