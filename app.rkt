@@ -10,15 +10,22 @@
 (define-values (twatlr-dispatch twatlr-url)
     (dispatch-rules
      [("") home-page]
+     [("thread") redirect-thread]
      [("thread" (string-arg)) view-thread]))
 
 (define (home-page req)
   (render home-page-tmpl))
+
+(define (redirect-thread req)
+  (redirect-to (string-append "/thread/" (cdr (assoc 'tweet (url-query (request-uri req)))))
+               permanently))
+
 (define (view-thread req t)
   (response/xexpr
     `(html (head (title "View Thread"))
            (body (p "View thread for tweet:")
                  (p ,t)))))
+
 (define (not-found req)
   (response/xexpr
     `(html (head (title "Hello world!"))
