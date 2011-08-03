@@ -17,22 +17,26 @@
   (render home-page-tmpl))
 
 (define (redirect-thread req)
-  (redirect-to (string-append "/thread/" (cdr (assoc 'tweet (url-query (request-uri req)))))
-               permanently))
+  (let ([param (cdr (assoc 'tweet (url-query (request-uri req))))])
+    (redirect-to (string-append "/thread/" (or (extract-id param) param))
+                 permanently)))
 
 (define (view-thread req t)
-  (response/xexpr
-    `(html (head (title "View Thread"))
-           (body (p "View thread for tweet:")
-                 (p ,t)))))
+  (if (hash-has-key? (get-tweet t) 'error)
+    (render view-thread-tmpl (hash "content" "Error!"))
+    (render view-thread-tmpl (hash "content" (render-thread (get-thread t))))))
 
 (define (not-found req)
   (response/xexpr
     `(html (head (title "Hello world!"))
            (body (p "Hey out there!")))))
 
-(define-values (home-page-tmpl) (make-template (file->string "./home-page.html")))
+(define-values (home-page-tmpl view-thread-tmpl tweet-tmpl)
+  (values (make-template (file->string "./home-page.html"))
+          (make-template (file->string "./view-thread.html"))
+          (make-template (file->string "./_tweet.html"))))
 
+; Render view
 (define (render tmpl [data (hash)])
   (let ([output (template->string tmpl data)])
     (response/full
@@ -41,6 +45,28 @@
       (list (make-header #"Content-Length" (string->bytes/utf-8 (number->string (string-length output))))
             (make-header #"X-LOL" #"NO U"))
       (list (string->bytes/utf-8 output)))))
+
+; Render a thread to a HTML
+(define (render-thread thread)
+  (string-append
+    "<ol>"
+    (foldr string-append
+           ""
+           (map (λ (t) (template->string tweet-tmpl (tweet->tmpl-hash t))) thread))
+    "</ol>"))
+
+(define (tweet->tmpl-hash t)
+  (hash
+    "id" (hash-ref t 'id_str)
+    "username" (hash-ref (hash-ref t 'user) 'name)
+    "text" (hash-ref t 'text)
+    "date" (hash-ref t 'created_at)))
+
+(define (extract-id url)
+  (let ([match (regexp-match #px"\\d+$" url)])
+    (if match
+      (car match)
+      #f)))
 
 (define (url->request u)
   (make-request #"GET" (string->url u) empty
