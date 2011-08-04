@@ -7,34 +7,40 @@
          "vendor/twatlr/twatlr.rkt"
          (planet dyoo/string-template:1:0/string-template))
 
+; Dispatcher
 (define-values (twatlr-dispatch twatlr-url)
     (dispatch-rules
      [("") home-page]
      [("thread") redirect-thread]
      [("thread" (string-arg)) view-thread]))
 
+; Home page responder
 (define (home-page req)
   (render home-page-tmpl))
 
+; Redirect responder
 (define (redirect-thread req)
   (let ([param (cdr (assoc 'tweet (url-query (request-uri req))))])
     (redirect-to (string-append "/thread/" (or (extract-id param) param))
                  permanently)))
 
+; View thread responder
 (define (view-thread req t)
   (if (hash-has-key? (get-tweet t) 'error)
-    (render view-thread-tmpl (hash "content" "Error!"))
+    (render not-found-tmpl)
     (render view-thread-tmpl (hash "content" (render-thread (get-thread t))))))
 
+; 404 responder
 (define (not-found req)
-  (response/xexpr
-    `(html (head (title "Hello world!"))
-           (body (p "Hey out there!")))))
+  (render not-found-tmpl))
 
-(define-values (home-page-tmpl view-thread-tmpl tweet-tmpl)
+; Templates
+(define-values (home-page-tmpl view-thread-tmpl not-found-tmpl tweet-tmpl thread-tmpl)
   (values (make-template (file->string "./home-page.html"))
           (make-template (file->string "./view-thread.html"))
-          (make-template (file->string "./_tweet.html"))))
+          (make-template (file->string "./not-found.html"))
+          (make-template (file->string "./_tweet.html"))
+          (make-template (file->string "./_thread.html"))))
 
 ; Render view
 (define (render tmpl [data (hash)])
@@ -46,28 +52,44 @@
             (make-header #"X-LOL" #"NO U"))
       (list (string->bytes/utf-8 output)))))
 
+; Render 404
+(define (render-404 tmpl [data (hash)])
+  (let ([output (template->string tmpl data)])
+    (response/full
+      404 #"Not Found"
+      (current-seconds) TEXT/HTML-MIME-TYPE
+      (list (make-header #"Content-Length" (string->bytes/utf-8 (number->string (string-length output))))
+            (make-header #"X-LOL" #"NO U"))
+      (list (string->bytes/utf-8 output)))))
+
 ; Render a thread to a HTML
 (define (render-thread thread)
-  (string-append
-    "<ol>"
-    (foldr string-append
-           ""
-           (map (λ (t) (template->string tweet-tmpl (tweet->tmpl-hash t))) thread))
-    "</ol>"))
+  (template->string thread-tmpl
+    (hash
+      "numtweets" (number->string (length thread))
+      "numusers" (length (remove-duplicates (map (λ (t) (hash-ref (hash-ref t 'user) 'name)) thread)))
+      "tweets" (foldr string-append
+                 ""
+                 (map (λ (t)
+                        (template->string tweet-tmpl (tweet->tmpl-hash t))) thread)))))
 
+; Convert a tweet hash (JSON) to a hash suitable for string templates
 (define (tweet->tmpl-hash t)
   (hash
     "id" (hash-ref t 'id_str)
     "username" (hash-ref (hash-ref t 'user) 'name)
+    "userscreenname" (hash-ref (hash-ref t 'user) 'screen_name)
     "text" (hash-ref t 'text)
     "date" (hash-ref t 'created_at)))
 
+; Grab numeric ID from either ID or tweet URL
 (define (extract-id url)
   (let ([match (regexp-match #px"\\d+$" url)])
     (if match
       (car match)
       #f)))
 
+; URL to Request
 (define (url->request u)
   (make-request #"GET" (string->url u) empty
                 (delay empty) #f "1.2.3.4" 80 "4.3.2.1"))
@@ -80,5 +102,6 @@
   #:log-file (build-path "./log/app.log")
   #:servlet-regexp #rx""
   #:servlet-path "/"
-  #:launch-browser? #f)
+  #:launch-browser? #f
+  #:file-not-found-responder not-found)
 
