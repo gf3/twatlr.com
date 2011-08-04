@@ -1,5 +1,5 @@
-# APP_ROOT = '/data/www/twatlr.com/current'
-APP_ROOT = '/Users/gianni/Projects/racket/twatlr.com'
+APP_ROOT = '/data/www/twatlr.com/current'
+# APP_ROOT = '/Users/gianni/Projects/racket/twatlr.com'
 
 God.watch do |w|
   w.name = 'twatlr'
