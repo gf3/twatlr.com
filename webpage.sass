@@ -9,8 +9,10 @@
   font-family: 'Permanent Marker', cursive
   font-weight: 400
 
-html
+html, body
   background: #D4D4D4
+
+html
   line-height: 18px
   color: hsl( 0, 0%, 27% )
 
@@ -115,13 +117,13 @@ h2
       +background-image( linear-gradient( left, hsl( 15, 75%, 35% ), hsl( 15, 75%, 46% ) ) )
 
 // Form
-form
+#main form
   input:focus
     outline: 3px solid #F8E65E
 
   input[type=url]
     display: block
-    margin-bottom: 18px * 3
+    margin-bottom: 18px * 2
     padding: 9px 0 9px 18px
     -webkit-appearance: none
     width: 640px - 18px
@@ -162,6 +164,9 @@ form
     &:active
       +background-image( linear-gradient( darken( #FFF, 15% ), darken( #FFF, 15% ) 50%, darken( #F2F2F2, 25% ) 50% ) )
 
+  & + p:last-of-type
+    margin-bottom: 18px * 2
+
 // Thread
 #main ol
   padding: 0
@@ -172,11 +177,18 @@ form
     position: relative
     padding: 9px 18px
     border-top: 1px solid hsl( 0, 0%, 67% )
+    h3
+      span
+        color: hsl( 0, 0%, 60% )
+        font-size: 14px
+        font-weight: normal
     time
       position: absolute
       top: 9px
       right: 18px
+      height: 20px
       color: hsl( 0, 0%, 60% )
+      font-size: 14px
     p
       margin-left: 0
       margin-right: 0
