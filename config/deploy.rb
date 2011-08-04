@@ -11,6 +11,7 @@ role :app, "173.255.226.205"   # This may be the same as your `Web` server
 
 namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
+    run "cd #{release_path}; git submodule init; git submodule update"
     run "god restart twatlr"
   end
 end
