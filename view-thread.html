@@ -37,3 +37,42 @@
     </footer>
   </div>
 
+  <script>
+    function require ( m ) {}
+    var exports = {}
+  </script>
+  <script src=/higherorder.js></script>
+  <script src=/react.js></script>
+  <script src=/ago.js></script>
+  <script>
+    var r = exports
+      , times = query( 'ol li time' )
+
+    function zip () {
+      var i = -1
+        , a = toArray( arguments )
+      return map( function () {
+        i++
+        return map( function ( j ) { return j[i] }, a )
+      }, a[0] )
+    }
+
+    function query ( selector, context ) {
+      return toArray( ( context || document ).querySelectorAll( selector) )
+    }
+
+    function queryOne ( selector, context ) {
+      return ( context || document ).querySelector( selector )
+    }
+
+    function toRelativeDate ( domEl ) {
+      return ago( new Date( domEl.innerHTML ) )
+    }
+
+    function setContent ( a ) {
+      a[0].innerHTML = a[1]
+    }
+
+    // Lol do it
+    map( setContent, zip( times, map( toRelativeDate, times ) ) )
+  </script>
