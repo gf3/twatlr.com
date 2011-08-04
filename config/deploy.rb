@@ -6,8 +6,8 @@ set :user,        :apprunner
 
 set :use_sudo,    false
 
-role :web, "173.255.226.20"   # Your HTTP server, Apache/etc
-role :app, "173.255.226.20"   # This may be the same as your `Web` server
+role :web, "173.255.226.205"   # Your HTTP server, Apache/etc
+role :app, "173.255.226.205"   # This may be the same as your `Web` server
 
 namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
