@@ -36,11 +36,11 @@
 
 ; Templates
 (define-values (home-page-tmpl view-thread-tmpl not-found-tmpl tweet-tmpl thread-tmpl)
-  (values (make-template (file->string "./home-page.html"))
-          (make-template (file->string "./view-thread.html"))
-          (make-template (file->string "./not-found.html"))
-          (make-template (file->string "./_tweet.html"))
-          (make-template (file->string "./_thread.html"))))
+  (values (make-template (file->string "./views/home-page.html"))
+          (make-template (file->string "./views/view-thread.html"))
+          (make-template (file->string "./views/not-found.html"))
+          (make-template (file->string "./views/_tweet.html"))
+          (make-template (file->string "./views/_thread.html"))))
 
 ; Render view
 (define (render tmpl [data (hash)])
