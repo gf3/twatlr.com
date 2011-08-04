@@ -1,11 +1,15 @@
 #lang racket
 
 (require net/url
+         mzlib/os
+         racket/path
          web-server/http
          web-server/dispatch
          web-server/servlet-env
          "vendor/twatlr/twatlr.rkt"
          (planet dyoo/string-template:1:0/string-template))
+
+(define app-path (path-only (find-system-path 'run-file)))
 
 ; Dispatcher
 (define-values (twatlr-dispatch twatlr-url)
@@ -36,11 +40,11 @@
 
 ; Templates
 (define-values (home-page-tmpl view-thread-tmpl not-found-tmpl tweet-tmpl thread-tmpl)
-  (values (make-template (file->string "./views/home-page.html"))
-          (make-template (file->string "./views/view-thread.html"))
-          (make-template (file->string "./views/not-found.html"))
-          (make-template (file->string "./views/_tweet.html"))
-          (make-template (file->string "./views/_thread.html"))))
+  (values (make-template (file->string (build-path app-path "views" "home-page.html")))
+          (make-template (file->string (build-path app-path "views" "view-thread.html")))
+          (make-template (file->string (build-path app-path "views" "not-found.html")))
+          (make-template (file->string (build-path app-path "views" "_tweet.html")))
+          (make-template (file->string (build-path app-path "views" "_thread.html")))))
 
 ; Render view
 (define (render tmpl [data (hash)])
@@ -97,9 +101,10 @@
 ; (write (twatlr-dispatch
 ;    (url->request "http://gf3.ca/thread/1234abcd")))
 
+(with-output-to-file (build-path app-path "app.pid") (λ () (write (getpid))))
 (serve/servlet twatlr-dispatch
-  #:extra-files-paths (list (build-path "./public"))
-  #:log-file (build-path "./log/app.log")
+  #:extra-files-paths (list (build-path app-path "public"))
+  #:log-file (build-path app-path "log" "app.log")
   #:servlet-regexp #rx""
   #:servlet-path "/"
   #:launch-browser? #f
