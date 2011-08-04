@@ -87,6 +87,7 @@
     "id" (hash-ref t 'id_str)
     "username" (hash-ref (hash-ref t 'user) 'name)
     "userscreenname" (hash-ref (hash-ref t 'user) 'screen_name)
+    "userpic" (hash-ref (hash-ref t 'user) 'profile_image_url)
     "text" (hash-ref t 'text)
     "date" (hash-ref t 'created_at)))
 

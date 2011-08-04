@@ -173,13 +173,20 @@ h2
 
   li
     position: relative
-    padding: 9px 18px
+    padding: 9px 18px 9px ( 18px * 5 )
     border-top: 1px solid hsl( 0, 0%, 67% )
+    
+    img
+      position: absolute
+      top: 9px + 3px
+      left: 18px
+
     h3
       span
         color: hsl( 0, 0%, 60% )
         font-size: 14px
         font-weight: normal
+
     time
       position: absolute
       top: 9px
@@ -187,6 +194,7 @@ h2
       height: 20px
       color: hsl( 0, 0%, 60% )
       font-size: 14px
+
     p
       margin-left: 0
       margin-right: 0
