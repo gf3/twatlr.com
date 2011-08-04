@@ -20,7 +20,7 @@
 
 ; Home page responder
 (define (home-page req)
-  (render home-page-tmpl))
+  (render home-page-tmpl (hash "labelclass" "notice" "labeltext" "Enter the URL of a tweet below &darr;")))
 
 ; Redirect responder
 (define (redirect-thread req)
@@ -29,25 +29,24 @@
       (let ([tweet-id (cdr param-pair)])
         (redirect-to (string-append "/thread/" (or (extract-id tweet-id) tweet-id))
                      permanently))
-      (render not-found-tmpl))))
+      (not-found req))))
 
 ; View thread responder
 (define (view-thread req t)
   (if (extract-id t)
     (if (hash-has-key? (get-tweet t) 'error)
-      (render not-found-tmpl)
+      (not-found req)
       (render view-thread-tmpl (hash "content" (render-thread (get-thread t)))))
-    (render not-found-tmpl)))
+    (not-found req)))
 
 ; 404 responder
 (define (not-found req)
-  (render not-found-tmpl))
+  (render home-page-tmpl (hash "labelclass" "error" "labeltext" "Not found &mdash; Try again :(")))
 
 ; Templates
-(define-values (home-page-tmpl view-thread-tmpl not-found-tmpl tweet-tmpl thread-tmpl)
+(define-values (home-page-tmpl view-thread-tmpl tweet-tmpl thread-tmpl)
   (values (make-template (file->string (build-path app-path "views" "home-page.html")))
           (make-template (file->string (build-path app-path "views" "view-thread.html")))
-          (make-template (file->string (build-path app-path "views" "not-found.html")))
           (make-template (file->string (build-path app-path "views" "_tweet.html")))
           (make-template (file->string (build-path app-path "views" "_thread.html")))))
 
