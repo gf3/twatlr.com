@@ -24,15 +24,20 @@
 
 ; Redirect responder
 (define (redirect-thread req)
-  (let ([param (cdr (assoc 'tweet (url-query (request-uri req))))])
-    (redirect-to (string-append "/thread/" (or (extract-id param) param))
-                 permanently)))
+  (let ([param-pair (assoc 'tweet (url-query (request-uri req)))])
+    (if param-pair
+      (let ([tweet-id (cdr param-pair)])
+        (redirect-to (string-append "/thread/" (or (extract-id tweet-id) tweet-id))
+                     permanently))
+      (render not-found-tmpl))))
 
 ; View thread responder
 (define (view-thread req t)
-  (if (hash-has-key? (get-tweet t) 'error)
-    (render not-found-tmpl)
-    (render view-thread-tmpl (hash "content" (render-thread (get-thread t))))))
+  (if (extract-id t)
+    (if (hash-has-key? (get-tweet t) 'error)
+      (render not-found-tmpl)
+      (render view-thread-tmpl (hash "content" (render-thread (get-thread t)))))
+    (render not-found-tmpl)))
 
 ; 404 responder
 (define (not-found req)
