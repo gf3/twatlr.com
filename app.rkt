@@ -24,12 +24,9 @@
 
 ; Redirect responder
 (define (redirect-thread req)
-  (let ([param-pair (assoc 'tweet (url-query (request-uri req)))])
-    (if param-pair
-      (let ([tweet-id (cdr param-pair)])
-        (redirect-to (string-append "/thread/" (or (extract-id tweet-id) tweet-id))
-                     permanently))
-      (not-found req))))
+  (match (assoc 'tweet (url-query (request-uri req)))
+    [(cons k v) (redirect-to (string-append "/thread/" (or (extract-id v) v)) permanently)]
+    [_ (not-found req)]))
 
 ; View thread responder
 (define (view-thread req t)
