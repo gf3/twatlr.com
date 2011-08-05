@@ -42,15 +42,16 @@
   (render home-page-tmpl (hash "labelclass" "error" "labeltext" "Not found &mdash; Try again :(")))
 
 ; Templates
-(define-values (home-page-tmpl view-thread-tmpl tweet-tmpl thread-tmpl)
+(define-values (home-page-tmpl view-thread-tmpl head-tmpl tweet-tmpl thread-tmpl)
   (values (make-template (file->string (build-path app-path "views" "home-page.html")))
           (make-template (file->string (build-path app-path "views" "view-thread.html")))
+          (make-template (file->string (build-path app-path "views" "_head.html")))
           (make-template (file->string (build-path app-path "views" "_tweet.html")))
           (make-template (file->string (build-path app-path "views" "_thread.html")))))
 
 ; Render view
 (define (render tmpl [data (hash)])
-  (let ([output (template->string tmpl data)])
+  (let ([output (template->string tmpl (hash-set data "head" (template->string head-tmpl (hash))))])
     (response/full
       200 #"Okay"
       (current-seconds) TEXT/HTML-MIME-TYPE
