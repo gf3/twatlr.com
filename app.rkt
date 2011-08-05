@@ -34,7 +34,7 @@
   (if (extract-id t)
     (if (hash-has-key? (get-tweet t) 'error)
       (not-found req)
-      (render view-thread-tmpl (hash "content" (render-thread (get-thread t)))))
+      (render view-thread-tmpl (hash "content" (thread->string (get-thread t)))))
     (not-found req)))
 
 ; 404 responder
@@ -70,7 +70,7 @@
       (list (string->bytes/utf-8 output)))))
 
 ; Render a thread to a HTML
-(define (render-thread thread)
+(define (thread->string thread)
   (template->string thread-tmpl
     (hash
       "numtweets" (number->string (length thread))
@@ -88,7 +88,7 @@
     "username"        (hash-ref (hash-ref t 'user) 'name)
     "userscreenname"  (hash-ref (hash-ref t 'user) 'screen_name)
     "userpic"         (hash-ref (hash-ref t 'user) 'profile_image_url)
-    "text"            (hash-ref t 'text)
+    "text"            (linkify-twitter (linkify-url (hash-ref t 'text)))
     "date"            (hash-ref t 'created_at)))
 
 ; Grab numeric ID from either ID or tweet URL
@@ -98,6 +98,17 @@
       (car match)
       #f)))
 
+; Linkfiy all URLs in a string
+(define (linkify-url text)
+  (let ([r-http #px"$[a-z]://"] [r-link #px"\\b(?:[a-z]+://)?(?<!@)[0-9a-z](?:[-\\d\\w.]*\\.)+[a-z]{2,4}(?:\\:\\d{1,6})?(?:[-\\d\\w./?=&#%+]*)\\b"])
+    (regexp-replace* r-link text (λ (url)
+                                  (let ([fixed-url (if (regexp-match? r-http url) url (string-append "http://" url))])
+                                    (string-append "<a href=" fixed-url ">" url "</a>"))))))
+
+; Linkify all Twitter usernames in a string
+(define (linkify-twitter text)
+  (regexp-replace* #px"@(\\w+)" text (λ (disp user)
+                                       (string-append "<a href=http://twitter.com/" user ">" disp "</a>"))))
 ; URL to Request
 (define (url->request u)
   (make-request #"GET" (string->url u) empty
