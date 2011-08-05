@@ -100,15 +100,17 @@
 
 ; Linkfiy all URLs in a string
 (define (linkify-url text)
-  (let ([r-http #px"^[a-z]+://"] [r-link #px"\\b(?:[a-z]+://)?(?<!@)[0-9a-z](?:[-\\d\\w.]*\\.)+[a-z]{2,4}(?:\\:\\d{1,6})?(?:[-\\d\\w./?=&#%+]*)\\b"])
-    (regexp-replace* r-link text (λ (url)
-                                  (let ([fixed-url (if (regexp-match? r-http url) url (string-append "http://" url))])
-                                    (string-append "<a href=" fixed-url ">" url "</a>"))))))
+  (let ([r-http #px"^[a-z]+://"]
+        [r-link #px"\\b(?:[a-z]+://)?(?<!@)[0-9a-z](?:[-\\d\\w.]*\\.)+[a-z]{2,4}(?:\\:\\d{1,6})?(?:[-\\d\\w./?=&#%+]*)\\b"])
+          (regexp-replace* r-link text (λ (url)
+                                        (let ([fixed-url (if (regexp-match? r-http url) url (string-append "http://" url))])
+                                          (string-append "<a href=" fixed-url ">" url "</a>"))))))
 
 ; Linkify all Twitter usernames in a string
 (define (linkify-twitter text)
   (regexp-replace* #px"@(\\w+)" text (λ (disp user)
                                        (string-append "<a href=http://twitter.com/" user ">" disp "</a>"))))
+
 ; URL to Request
 (define (url->request u)
   (make-request #"GET" (string->url u) empty
