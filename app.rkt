@@ -13,14 +13,15 @@
 
 ; Dispatcher
 (define-values (twatlr-dispatch twatlr-url)
-    (dispatch-rules
-     [("") home-page]
-     [("thread") redirect-thread]
-     [("thread" (string-arg)) view-thread]))
+  (dispatch-rules
+    [("") home-page]
+    [("thread") redirect-thread]
+    [("thread" (string-arg)) view-thread]))
 
 ; Home page responder
 (define (home-page req)
-  (render home-page-tmpl (hash "labelclass" "notice" "labeltext" "Enter the URL of a tweet below &darr;")))
+  (render home-page-tmpl (hash "labelclass" "notice"
+                               "labeltext"  "Enter the URL of a tweet below &darr;")))
 
 ; Redirect responder
 (define (redirect-thread req)
