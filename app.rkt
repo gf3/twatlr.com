@@ -75,21 +75,22 @@
   (template->string thread-tmpl
     (hash
       "numtweets" (number->string (length thread))
-      "numusers" (length (remove-duplicates (map (λ (t) (hash-ref (hash-ref t 'user) 'name)) thread)))
-      "tweets" (foldr string-append
-                 ""
-                 (map (λ (t)
-                        (template->string tweet-tmpl (tweet->tmpl-hash t))) thread)))))
+      "numusers"  (length (remove-duplicates (map (λ (t) (hash-ref (hash-ref t 'user) 'name)) thread)))
+      "tweets"    (foldr string-append
+                    ""
+                    (map (λ (t)
+                           (template->string tweet-tmpl (tweet->tmpl-hash t)))
+                         (reverse thread))))))
 
 ; Convert a tweet hash (JSON) to a hash suitable for string templates
 (define (tweet->tmpl-hash t)
   (hash
-    "id" (hash-ref t 'id_str)
-    "username" (hash-ref (hash-ref t 'user) 'name)
-    "userscreenname" (hash-ref (hash-ref t 'user) 'screen_name)
-    "userpic" (hash-ref (hash-ref t 'user) 'profile_image_url)
-    "text" (hash-ref t 'text)
-    "date" (hash-ref t 'created_at)))
+    "id"              (hash-ref t 'id_str)
+    "username"        (hash-ref (hash-ref t 'user) 'name)
+    "userscreenname"  (hash-ref (hash-ref t 'user) 'screen_name)
+    "userpic"         (hash-ref (hash-ref t 'user) 'profile_image_url)
+    "text"            (hash-ref t 'text)
+    "date"            (hash-ref t 'created_at)))
 
 ; Grab numeric ID from either ID or tweet URL
 (define (extract-id url)
