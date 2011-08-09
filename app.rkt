@@ -39,7 +39,8 @@
 
 ; 404 responder
 (define (not-found req)
-  (render home-page-tmpl (hash "labelclass" "error" "labeltext" "Not found &mdash; Try again :(")))
+  (render home-page-tmpl (hash "labelclass" "error"
+                               "labeltext"  "Not found &mdash; Try again :(")))
 
 ; Templates
 (define-values (home-page-tmpl view-thread-tmpl head-tmpl tweet-tmpl thread-tmpl)

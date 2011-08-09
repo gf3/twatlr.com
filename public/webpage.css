@@ -294,13 +294,17 @@ h2 {
   top: 12px;
   left: 18px;
 }
-/* line 185, ../webpage.sass */
+/* line 184, ../webpage.sass */
+#main ol li h3 {
+  margin-bottom: 9px;
+}
+/* line 187, ../webpage.sass */
 #main ol li h3 span {
   color: #999999;
   font-size: 14px;
   font-weight: normal;
 }
-/* line 190, ../webpage.sass */
+/* line 192, ../webpage.sass */
 #main ol li time {
   position: absolute;
   top: 9px;
@@ -309,16 +313,16 @@ h2 {
   color: #999999;
   font-size: 14px;
 }
-/* line 198, ../webpage.sass */
+/* line 200, ../webpage.sass */
 #main ol li p {
   margin-left: 0;
   margin-right: 0;
 }
-/* line 202, ../webpage.sass */
+/* line 204, ../webpage.sass */
 #main ol li:nth-of-type(2n+1) {
   background: #fafafa;
 }
-/* line 205, ../webpage.sass */
+/* line 207, ../webpage.sass */
 #main ol + p {
   margin-bottom: 18px;
   text-align: center;
@@ -326,7 +330,7 @@ h2 {
   color: #999999;
 }
 
-/* line 212, ../webpage.sass */
+/* line 214, ../webpage.sass */
 #main footer {
   padding: 9px 0;
   border-top: 1px solid #ababab;
@@ -347,7 +351,7 @@ h2 {
   color: #999999;
   text-shadow: 0 1px 0 white;
 }
-/* line 221, ../webpage.sass */
+/* line 223, ../webpage.sass */
 #main footer p:last-child {
   margin-bottom: 0;
 }
