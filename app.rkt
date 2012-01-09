@@ -43,11 +43,12 @@
                                "labeltext"  "Not found &mdash; Try again :(")))
 
 ; Templates
-(define-values (home-page-tmpl view-thread-tmpl head-tmpl tweet-tmpl thread-tmpl)
+(define-values (home-page-tmpl view-thread-tmpl head-tmpl tweet-tmpl tweet-error-tmpl thread-tmpl)
   (values (make-template (file->string (build-path app-path "views" "home-page.html")))
           (make-template (file->string (build-path app-path "views" "view-thread.html")))
           (make-template (file->string (build-path app-path "views" "_head.html")))
           (make-template (file->string (build-path app-path "views" "_tweet.html")))
+          (make-template (file->string (build-path app-path "views" "_tweet-error.html")))
           (make-template (file->string (build-path app-path "views" "_thread.html")))))
 
 ; Render view
@@ -75,12 +76,16 @@
   (template->string thread-tmpl
     (hash
       "numtweets" (number->string (length thread))
-      "numusers"  (length (remove-duplicates (map (λ (t) (hash-ref (hash-ref t 'user) 'name)) thread)))
+      "numusers"  (length (remove-duplicates (filter hash? (map get-user-name thread))))
       "tweets"    (foldr string-append
                     ""
-                    (map (λ (t)
-                           (template->string tweet-tmpl (tweet->tmpl-hash t)))
-                         (reverse thread))))))
+                    (map tweet->string (reverse thread))))))
+
+; Render a tweet to HTML
+(define (tweet->string tweet)
+  (if (hash-ref tweet 'error #f)
+    (template->string tweet-error-tmpl #hash())
+    (template->string tweet-tmpl (tweet->tmpl-hash tweet))))
 
 ; Convert a tweet hash (JSON) to a hash suitable for string templates
 (define (tweet->tmpl-hash t)
@@ -91,6 +96,12 @@
     "userpic"         (hash-ref (hash-ref t 'user) 'profile_image_url)
     "text"            (linkify-twitter (linkify-url (hash-ref t 'text)))
     "date"            (hash-ref t 'created_at)))
+
+; Get the user's name for a given tweet
+(define (get-user-name tweet)
+  (if (hash-ref tweet 'error #f)
+    #\nul
+    (hash-ref (hash-ref tweet 'user) 'name)))
 
 ; Grab numeric ID from either ID or tweet URL
 (define (extract-id url)
