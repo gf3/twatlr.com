@@ -7,7 +7,7 @@ God.watch do |w|
   w.log = "#{APP_ROOT}/log/stdout.log"
 
   w.start = "env racket #{APP_ROOT}/app.rkt"
-  w.stop = "env kill #{w.pid_file}"
+  w.stop = "env kill $(cat #{w.pid_file})"
 
   w.interval = 30.seconds
   w.start_grace = 10.seconds
