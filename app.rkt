@@ -14,20 +14,25 @@
 ; Dispatcher
 (define-values (twatlr-dispatch twatlr-url)
   (dispatch-rules
-    [("") home-page]
-    [("thread") redirect-thread]
-    [("thread" (string-arg)) view-thread]))
+    [("")                     home-page]
+    [("thread")               redirect-thread]
+    [("thread" (string-arg))  view-thread]
+    [((number-arg))           redirect-thread-2]))
 
 ; Home page responder
 (define (home-page req)
   (render home-page-tmpl (hash "labelclass" "notice"
                                "labeltext"  "Enter the URL of a tweet below &darr;")))
 
-; Redirect responder
+; Redirect responders
 (define (redirect-thread req)
   (match (assoc 'tweet (url-query (request-uri req)))
     [(cons k v) (redirect-to (string-append "/thread/" (or (extract-id v) v)) permanently)]
     [_ (not-found req)]))
+
+(define (redirect-thread-2 req t)
+  (let ([t (number->string t)])
+    (redirect-to (string-append "/thread/" (or (extract-id t) t)) permanently)))
 
 ; View thread responder
 (define (view-thread req t)
