@@ -76,7 +76,7 @@
   (template->string thread-tmpl
     (hash
       "numtweets" (number->string (length thread))
-      "numusers"  (length (remove-duplicates (filter hash? (map get-user-name thread))))
+      "numusers"  (length (remove-duplicates (filter string? (map get-user-name thread))))
       "tweets"    (foldr string-append
                     ""
                     (map tweet->string (reverse thread))))))
