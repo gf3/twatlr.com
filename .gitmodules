@@ -1,0 +1,3 @@
+[submodule "vendor/twatlr"]
+	path = vendor/twatlr
+	url = git://github.com/gf3/Twatlr.git
