@@ -11,9 +11,9 @@ default_run_options[:pty] = true
 
 namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "cd #{release_path}/current; git submodule init; git submodule update"
+    run "cd #{release_path}; git submodule init; git submodule update"
     run "killall racket"
-    run "cd #{release_path}/current; rm app.pid; racket app.rkt"
+    run "cd #{release_path}; rm app.pid; racket app.rkt"
   end
 end
 
