@@ -13,7 +13,7 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "cd #{release_path}; git submodule init; git submodule update"
     run "kill $(ps -C app.rkt -o pid=); true" # Ignore failed kills
-    run "cd #{release_path}; rm app.pid; nohup racket #{release_path}/app.rkt &" # Start server
+    run "nohup racket #{release_path}/app.rkt &" # Start server
   end
 end
 
