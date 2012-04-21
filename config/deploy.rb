@@ -1,6 +1,6 @@
 set :application, "twatlr"
 set :repository,  "git://github.com/gf3/twatlr.com.git"
-set :deploy_to,   "/var/sites/twatlr.com"
+set :deploy_to,   "/var/www/twatlr.com"
 set :scm,         :git
 set :user,        :gianni
 
