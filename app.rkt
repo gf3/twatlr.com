@@ -62,8 +62,7 @@
     (response/full
       200 #"Okay"
       (current-seconds) TEXT/HTML-MIME-TYPE
-      (list (make-header #"Content-Length" (string->bytes/utf-8 (number->string (string-length output))))
-            (make-header #"X-LOL" #"NO U"))
+      (list (make-header #"X-LOL" #"NO U"))
       (list (string->bytes/utf-8 output)))))
 
 ; Render 404
@@ -72,8 +71,7 @@
     (response/full
       404 #"Not Found"
       (current-seconds) TEXT/HTML-MIME-TYPE
-      (list (make-header #"Content-Length" (string->bytes/utf-8 (number->string (string-length output))))
-            (make-header #"X-LOL" #"NO U"))
+      (list (make-header #"X-LOL" #"NO U"))
       (list (string->bytes/utf-8 output)))))
 
 ; Render a thread to a HTML
