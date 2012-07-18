@@ -1,6 +1,10 @@
 @import "compass/css3"
 @import "compass/typography"
 
+$line:      24
+$font-size: 16
+$em:        $font-size * 1
+
 =josefin
   font-family: 'Josefin Sans', sans-serif
   font-weight: 700
@@ -9,16 +13,56 @@
   font-family: 'Permanent Marker', cursive
   font-weight: 400
 
+*
+  +box-sizing(border-box)
+
 html, body
   background: #D4D4D4
 
 html
-  line-height: 18px
+  height: 100%
+  // line-height: 18px
   color: hsl( 0, 0%, 27% )
+  -webkit-text-size-adjust: 100%
+  -ms-text-size-adjust: 100%
 
 body
-  margin: 0 auto
-  width: 640px
+  margin: 0 auto ($line * 2px)
+  padding-bottom: ($line * 2px)
+  padding:
+    right: $line * 1px
+    left:  $line * 1px
+  min-height: 100%
+  font-size: 100%
+
+body
+  font-size: $font-size / 16 * 1em
+  line-height: #{$line / $em}em
+
+// @media screen and (min-width: 640px)
+@media screen and (min-width: 40em)
+  body
+    // Zoom baseline grid to 17/16 = 1.0625
+    font-size: #{($font-size + 1) / $em}em
+
+// @media screen and (min-width: 720px)
+@media screen and (min-width: 45em)
+  body
+    // Reset baseline grid to 16/16 = 1
+    font-size: #{$font-size / $em}em
+
+// @media screen and (min-width: 1200px)
+@media screen and (min-width: 75em)
+  body
+    // Zoom baseline grid to 17/16 = 1.0625
+    font-size: #{($font-size + 1) / $em}em
+
+// @media screen and (min-width: 2080px)
+@media screen and (min-width: 130em)
+  body
+    // Zoom baseline grid to 18/16 = 1.125
+    font-size: #{($font-size + 2) / $em}em
+    max-width: 2560 / $em em
 
 a
   +link-colors( hsl( 0, 0%, 22% ), hsl( 0, 0%, 40% ), hsl( 0, 0%, 22% ), hsl( 0, 0%, 22% ), hsl( 0, 0%, 22% ) )
@@ -26,6 +70,7 @@ a
 
 header
   padding-top: 36px
+  text-align: center
   a
     +hover-link
 
@@ -48,21 +93,31 @@ h2
 // Box
 #main
   position: relative
-  margin-bottom: 18px * 2
-  padding: 18px 0 0 0
-  +border-radius( 5px )
+  margin-bottom: ($line * 2px)
+  padding: ($line * 1px) 0 0 0
+  width: 100%
+  border-radius: 5px
   background: #ECECEC
   box-shadow: 0 1px 2px hsla( 0, 0%, 0%, .6 )
 
+  > section
+    > h2, > p
+      text-align: center
+
   h2
-    margin-left: 18px
+    margin-left:  ($line * .5px)
+    margin-right: ($line * .5px)
 
     & + p
-      margin-top: -9px
+      margin-top: -($line * .5px)
       color: hsl( 0, 0%, 60% )
 
   p
-    margin: 0 18px 9px 18px
+    margin: 
+      top:    0
+      right:  ($line * .5px)
+      bottom: ($line * .5px)
+      left:   ($line * .5px)
 
   label
     position: relative
@@ -114,6 +169,27 @@ h2
       background: hsl( 15, 75%, 35% )
       +background-image( linear-gradient( left, hsl( 15, 75%, 35% ), hsl( 15, 75%, 46% ) ) )
 
+// @media screen and (min-width: 720px)
+@media screen and (min-width: 45em)
+  body
+    padding:
+      right: 0
+      left:  0
+
+  header
+    text-align: left
+
+  header, #main
+    width: 640px
+    margin:
+      right: auto
+      left:  auto
+
+  #main
+    > section
+      > h2, > p
+        text-align: left
+
 // Form
 #main form
   input:focus
@@ -121,15 +197,16 @@ h2
 
   input[type=url]
     display: block
-    margin-bottom: 18px * 2
-    padding: 9px 0 9px 18px
+    margin-bottom: $line * 1px
+    padding: ($line * .5px) 0 ($line * .5px) ($line * .5px)
     -webkit-appearance: none
-    width: 640px - 18px
-    height: 36px
-    line-height: 36px
+    width: 100%
+    height:      48px + ($line * 1px)
+    line-height: 48px + ($line * 1px)
     border: 0
     border-top:    1px solid hsl( 0, 0%, 67% )
     border-bottom: 1px solid hsl( 0, 0%, 67% )
+    border-radius: 0
     font-size: 28px
     background: #FFF
     color: #000
@@ -144,12 +221,13 @@ h2
     position: absolute
     bottom: 0
     right: 0
-    padding: 9px 18px
+    padding: ($line * .5px) ($line * 1px)
     -webkit-appearance: none
-    height: 18px
-    line-height: 18px
+    height:      $line * 1px
+    line-height: $line * 1px
     border: 0
     border-left: 1px solid hsl( 0, 0%, 67% )
+    border-radius: 0
     +border-bottom-right-radius( 5px )
     box-sizing: content-box
     +background-image( linear-gradient( lighten( hsl( 325, 80%, 31% ), 10% ), lighten( hsl( 325, 80%, 31% ), 10% ) 50%, hsl( 325, 80%, 31% ) 50% ) )
@@ -163,7 +241,7 @@ h2
       +background-image( linear-gradient( darken( #FFF, 15% ), darken( #FFF, 15% ) 50%, darken( #F2F2F2, 25% ) 50% ) )
 
   & + p:last-of-type
-    margin-bottom: 18px * 2
+    margin-bottom: $line * 1px
 
 // Thread
 #main ol
@@ -220,7 +298,8 @@ h2
 
 // Footer
 #main footer
-  padding: 9px 0
+  padding: ($line * .5px) 0
+  height: 48px
   border-top: 1px solid hsl( 0, 0%, 67% )
   +border-bottom-radius( 5px )
   background-clip: padding-box

@@ -1,50 +1,85 @@
-/* line 12, ../webpage.sass */
+/* line 16, ../webpage.sass */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* line 19, ../webpage.sass */
 html, body {
   background: #d4d4d4; }
 
-/* line 15, ../webpage.sass */
+/* line 22, ../webpage.sass */
 html {
-  line-height: 18px;
-  color: #454545; }
+  height: 100%;
+  color: #454545;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
 
-/* line 19, ../webpage.sass */
+/* line 29, ../webpage.sass */
 body {
-  margin: 0 auto;
-  width: 640px; }
+  margin: 0 auto 48px;
+  padding-bottom: 48px;
+  padding-right: 24px;
+  padding-left: 24px;
+  min-height: 100%;
+  font-size: 100%; }
 
-/* line 23, ../webpage.sass */
+/* line 38, ../webpage.sass */
+body {
+  font-size: 1em;
+  line-height: 1.5em; }
+
+@media screen and (min-width: 40em) {
+  /* line 44, ../webpage.sass */
+  body {
+    font-size: 1.063em; } }
+@media screen and (min-width: 45em) {
+  /* line 50, ../webpage.sass */
+  body {
+    font-size: 1em; } }
+@media screen and (min-width: 75em) {
+  /* line 56, ../webpage.sass */
+  body {
+    font-size: 1.063em; } }
+@media screen and (min-width: 130em) {
+  /* line 62, ../webpage.sass */
+  body {
+    font-size: 1.125em;
+    max-width: 160 em; } }
+/* line 67, ../webpage.sass */
 a {
   color: #383838;
   text-decoration: underline; }
-  /* line 18, ../../../../.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems/compass-0.12.alpha.3/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  /* line 18, ../../../../.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
   a:visited {
     color: #383838; }
-  /* line 21, ../../../../.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems/compass-0.12.alpha.3/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  /* line 21, ../../../../.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
   a:focus {
     color: #383838; }
-  /* line 24, ../../../../.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems/compass-0.12.alpha.3/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  /* line 24, ../../../../.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
   a:hover {
     color: #666666; }
-  /* line 27, ../../../../.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems/compass-0.12.alpha.3/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  /* line 27, ../../../../.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
   a:active {
     color: #383838; }
 
-/* line 27, ../webpage.sass */
+/* line 71, ../webpage.sass */
 header {
-  padding-top: 36px; }
-  /* line 29, ../webpage.sass */
+  padding-top: 36px;
+  text-align: center; }
+  /* line 74, ../webpage.sass */
   header a {
     text-decoration: none; }
-    /* line 4, ../../../../.rbenv/versions/1.9.3-p0/lib/ruby/gems/1.9.1/gems/compass-0.12.alpha.3/frameworks/compass/stylesheets/compass/typography/links/_hover-link.scss */
+    /* line 4, ../../../../.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_hover-link.scss */
     header a:hover {
       text-decoration: underline; }
 
-/* line 32, ../webpage.sass */
+/* line 77, ../webpage.sass */
 h1, h2, h3 {
   margin-top: 0;
   text-shadow: 0 2px 0 white; }
 
-/* line 36, ../webpage.sass */
+/* line 81, ../webpage.sass */
 h1 {
   font-family: "Permanent Marker", cursive;
   font-weight: 400;
@@ -53,35 +88,39 @@ h1 {
   color: #8e105a;
   text-shadow: 0 2px 0 rgba(255, 255, 255, 0.6); }
 
-/* line 43, ../webpage.sass */
+/* line 88, ../webpage.sass */
 h2 {
   margin: 0 0 18px 0;
   font-size: 24px;
   line-height: 36px; }
 
-/* line 49, ../webpage.sass */
+/* line 94, ../webpage.sass */
 #main {
   position: relative;
-  margin-bottom: 36px;
-  padding: 18px 0 0 0;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+  margin-bottom: 48px;
+  padding: 24px 0 0 0;
+  width: 100%;
   border-radius: 5px;
   background: #ececec;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
-  /* line 57, ../webpage.sass */
+  /* line 104, ../webpage.sass */
+  #main > section > h2, #main > section > p {
+    text-align: center; }
+  /* line 107, ../webpage.sass */
   #main h2 {
-    margin-left: 18px; }
-    /* line 60, ../webpage.sass */
+    margin-left: 12px;
+    margin-right: 12px; }
+    /* line 111, ../webpage.sass */
     #main h2 + p {
-      margin-top: -9px;
+      margin-top: -12px;
       color: #999999; }
-  /* line 64, ../webpage.sass */
+  /* line 115, ../webpage.sass */
   #main p {
-    margin: 0 18px 9px 18px; }
-  /* line 67, ../webpage.sass */
+    margin-top: 0;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    margin-left: 12px; }
+  /* line 122, ../webpage.sass */
   #main label {
     position: relative;
     display: block;
@@ -107,7 +146,7 @@ h2 {
     text-align: center;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 1px 2px rgba(0, 0, 0, 0.6); }
-    /* line 84, ../webpage.sass */
+    /* line 139, ../webpage.sass */
     #main label::before, #main label::after {
       content: " ";
       position: absolute;
@@ -117,7 +156,7 @@ h2 {
       height: 36px;
       border: 0;
       background: #17819b; }
-    /* line 94, ../webpage.sass */
+    /* line 149, ../webpage.sass */
     #main label::before {
       left: -37px;
       box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.6);
@@ -132,7 +171,7 @@ h2 {
       -ms-transform: skewY(7deg);
       -o-transform: skewY(7deg);
       transform: skewY(7deg); }
-    /* line 100, ../webpage.sass */
+    /* line 155, ../webpage.sass */
     #main label::after {
       right: -37px;
       box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
@@ -147,10 +186,10 @@ h2 {
       -ms-transform: skewY(-7deg);
       -o-transform: skewY(-7deg);
       transform: skewY(-7deg); }
-  /* line 106, ../webpage.sass */
+  /* line 161, ../webpage.sass */
   #main label.error {
     background: #cd491d; }
-    /* line 109, ../webpage.sass */
+    /* line 164, ../webpage.sass */
     #main label.error::before {
       background: #9c3816;
       background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #cd491d), color-stop(100%, #9c3816));
@@ -159,7 +198,7 @@ h2 {
       background-image: -o-linear-gradient(left, #cd491d, #9c3816);
       background-image: -ms-linear-gradient(left, #cd491d, #9c3816);
       background-image: linear-gradient(left, #cd491d, #9c3816); }
-    /* line 113, ../webpage.sass */
+    /* line 168, ../webpage.sass */
     #main label.error::after {
       background: #9c3816;
       background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #9c3816), color-stop(100%, #cd491d));
@@ -169,41 +208,62 @@ h2 {
       background-image: -ms-linear-gradient(left, #9c3816, #cd491d);
       background-image: linear-gradient(left, #9c3816, #cd491d); }
 
-/* line 119, ../webpage.sass */
+@media screen and (min-width: 45em) {
+  /* line 174, ../webpage.sass */
+  body {
+    padding-right: 0;
+    padding-left: 0; }
+
+  /* line 179, ../webpage.sass */
+  header {
+    text-align: left; }
+
+  /* line 182, ../webpage.sass */
+  header, #main {
+    width: 640px;
+    margin-right: auto;
+    margin-left: auto; }
+
+  /* line 190, ../webpage.sass */
+  #main > section > h2, #main > section > p {
+    text-align: left; } }
+/* line 195, ../webpage.sass */
 #main form input:focus {
   outline: 3px solid #f8e65e; }
-/* line 122, ../webpage.sass */
+/* line 198, ../webpage.sass */
 #main form input[type=url] {
   display: block;
-  margin-bottom: 36px;
-  padding: 9px 0 9px 18px;
+  margin-bottom: 24px;
+  padding: 12px 0 12px 12px;
   -webkit-appearance: none;
-  width: 622px;
-  height: 36px;
-  line-height: 36px;
+  width: 100%;
+  height: 72px;
+  line-height: 72px;
   border: 0;
   border-top: 1px solid #ababab;
   border-bottom: 1px solid #ababab;
+  border-radius: 0;
   font-size: 28px;
   background: white;
   color: black; }
-  /* line 137, ../webpage.sass */
+  /* line 214, ../webpage.sass */
   #main form input[type=url]:invalid {
     color: red; }
-  /* line 140, ../webpage.sass */
+  /* line 217, ../webpage.sass */
   #main form input[type=url]:focus {
     color: black; }
-/* line 143, ../webpage.sass */
+/* line 220, ../webpage.sass */
 #main form input[type=submit] {
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 9px 18px;
+  padding: 12px 24px;
   -webkit-appearance: none;
-  height: 18px;
-  line-height: 18px;
+  height: 24px;
+  line-height: 24px;
   border: 0;
   border-left: 1px solid #ababab;
+  border-radius: 0;
   -moz-border-radius-bottomright: 5px;
   -webkit-border-bottom-right-radius: 5px;
   -ms-border-bottom-right-radius: 5px;
@@ -219,7 +279,7 @@ h2 {
   font-weight: bold;
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6); }
-  /* line 160, ../webpage.sass */
+  /* line 238, ../webpage.sass */
   #main form input[type=submit]:hover, #main form input[type=submit]:focus {
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #8e105a), color-stop(50%, #8e105a), color-stop(50%, #600b3d));
     background-image: -webkit-linear-gradient(#8e105a, #8e105a 50%, #600b3d 50%);
@@ -227,7 +287,7 @@ h2 {
     background-image: -o-linear-gradient(#8e105a, #8e105a 50%, #600b3d 50%);
     background-image: -ms-linear-gradient(#8e105a, #8e105a 50%, #600b3d 50%);
     background-image: linear-gradient(#8e105a, #8e105a 50%, #600b3d 50%); }
-  /* line 162, ../webpage.sass */
+  /* line 240, ../webpage.sass */
   #main form input[type=submit]:active {
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d9d9d9), color-stop(50%, #d9d9d9), color-stop(50%, #b2b2b2));
     background-image: -webkit-linear-gradient(#d9d9d9, #d9d9d9 50%, #b2b2b2 50%);
@@ -235,34 +295,34 @@ h2 {
     background-image: -o-linear-gradient(#d9d9d9, #d9d9d9 50%, #b2b2b2 50%);
     background-image: -ms-linear-gradient(#d9d9d9, #d9d9d9 50%, #b2b2b2 50%);
     background-image: linear-gradient(#d9d9d9, #d9d9d9 50%, #b2b2b2 50%); }
-/* line 165, ../webpage.sass */
+/* line 243, ../webpage.sass */
 #main form + p:last-of-type {
-  margin-bottom: 36px; }
+  margin-bottom: 24px; }
 
-/* line 169, ../webpage.sass */
+/* line 247, ../webpage.sass */
 #main ol {
   padding: 0;
   border-bottom: 1px solid #ababab;
   list-style-type: none; }
-  /* line 174, ../webpage.sass */
+  /* line 252, ../webpage.sass */
   #main ol li {
     position: relative;
     padding: 9px 18px 9px 90px;
     border-top: 1px solid #ababab; }
-    /* line 179, ../webpage.sass */
+    /* line 257, ../webpage.sass */
     #main ol li img {
       position: absolute;
       top: 12px;
       left: 18px; }
-    /* line 184, ../webpage.sass */
+    /* line 262, ../webpage.sass */
     #main ol li h3 {
       margin-bottom: 9px; }
-      /* line 187, ../webpage.sass */
+      /* line 265, ../webpage.sass */
       #main ol li h3 span {
         color: #999999;
         font-size: 14px;
         font-weight: normal; }
-    /* line 192, ../webpage.sass */
+    /* line 270, ../webpage.sass */
     #main ol li time {
       position: absolute;
       top: 9px;
@@ -270,31 +330,32 @@ h2 {
       height: 20px;
       color: #999999;
       font-size: 14px; }
-    /* line 200, ../webpage.sass */
+    /* line 278, ../webpage.sass */
     #main ol li p {
       margin-left: 0;
       margin-right: 0; }
-    /* line 204, ../webpage.sass */
+    /* line 282, ../webpage.sass */
     #main ol li:nth-of-type(2n+1) {
       background: #fafafa; }
-    /* line 207, ../webpage.sass */
+    /* line 285, ../webpage.sass */
     #main ol li.error {
       padding: 18px; }
-      /* line 210, ../webpage.sass */
+      /* line 288, ../webpage.sass */
       #main ol li.error p {
         margin: 0;
         font-style: italic;
         text-align: center; }
-  /* line 215, ../webpage.sass */
+  /* line 293, ../webpage.sass */
   #main ol + p {
     margin-bottom: 18px;
     text-align: center;
     font-style: italic;
     color: #999999; }
 
-/* line 222, ../webpage.sass */
+/* line 300, ../webpage.sass */
 #main footer {
-  padding: 9px 0;
+  padding: 12px 0;
+  height: 48px;
   border-top: 1px solid #ababab;
   -moz-border-radius-bottomleft: 5px;
   -webkit-border-bottom-left-radius: 5px;
@@ -310,6 +371,6 @@ h2 {
   background: #fafafa;
   color: #999999;
   text-shadow: 0 1px 0 white; }
-  /* line 231, ../webpage.sass */
+  /* line 310, ../webpage.sass */
   #main footer p:last-child {
     margin-bottom: 0; }

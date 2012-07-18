@@ -17,7 +17,7 @@ var ago = (function(){
     if ( ago = doDelta( 'years') )
       return ~~ago + 'y'
     else if ( ago = doDelta( 'months') )
-      return ~~ago + 'm'
+      return ~~ago + 'mo'
     else if ( ago = doDelta( 'weeks') )
       return ~~ago + 'w'
     else if ( ago = doDelta( 'days') )
