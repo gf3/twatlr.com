@@ -366,7 +366,7 @@ h2 {
     list-style-type: none; }
     /* line 312, ../webpage.sass */
     #main ol li {
-      padding: 12px 24px; }
+      padding: 12px 24px 12px 90px; }
       /* line 315, ../webpage.sass */
       #main ol li img {
         left: 24px; }
