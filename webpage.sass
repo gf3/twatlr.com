@@ -30,8 +30,8 @@ body
   margin: 0 auto ($line * 2px)
   padding-bottom: ($line * 2px)
   padding:
-    right: $line * 1px
-    left:  $line * 1px
+    right: $line * .5px
+    left:  $line * .5px
   min-height: 100%
   font-size: 100%
 
@@ -251,18 +251,18 @@ h2
 
   li
     position: relative
-    padding: ($line * .5px) ($line * 1px)
+    padding: ($line * .5px)
     border-top: 1px solid hsl( 0, 0%, 67% )
     
     img
       position: absolute
       top: ($line * .5px) + 3px
-      left: $line * 1px
+      left: $line * .5px
       border-radius: 5px
 
     h3
       position: absolute
-      left: 54px + $line * 1.5
+      left: 54px + $line
       margin-bottom: 9px
 
       span
@@ -275,7 +275,7 @@ h2
     time
       position: absolute
       top:   $line * .5px
-      right: $line * 1px
+      right: $line * .5px
       height: 20px
       color: hsl( 0, 0%, 60% )
       font-size: 14px
@@ -310,11 +310,10 @@ h2
     list-style-type: none
 
     li
-      position: relative
-      padding: 9px 18px 9px ( 18px * 5 )
-      border-top: 1px solid hsl( 0, 0%, 67% )
+      padding: ($line * .5px) ($line * 1px)
       
       img
+        left: $line * 1px
 
       h3
         position: static
@@ -324,6 +323,7 @@ h2
           display: inline
 
       time
+        right: $line * 1px
 
       p
         margin-top: 0
