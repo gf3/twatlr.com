@@ -76,14 +76,14 @@ header
 
 h1, h2, h3
   margin-top: 0
-  text-shadow: 0 2px 0 #FFF
+  text-shadow: 0 1px 0 #FFF
 
 h1
   +marker
   line-height: 18px * 3
   font-size: 48px
   color: hsl( 325, 80%, 31% )
-  text-shadow: 0 2px 0 hsla( 0, 0%, 100%, .6 )
+  text-shadow: 0 1px 0 hsla( 0, 0%, 100%, .6 )
 
 h2
   margin: 0 0 18px 0
@@ -251,31 +251,37 @@ h2
 
   li
     position: relative
-    padding: 9px 18px 9px ( 18px * 5 )
+    padding: ($line * .5px) ($line * 1px)
     border-top: 1px solid hsl( 0, 0%, 67% )
     
     img
       position: absolute
-      top: 9px + 3px
-      left: 18px
+      top: ($line * .5px) + 3px
+      left: $line * 1px
+      border-radius: 5px
 
     h3
+      position: absolute
+      left: 54px + $line * 1.5
       margin-bottom: 9px
 
       span
+        display: block
+        margin-top: $line * .25px
         color: hsl( 0, 0%, 60% )
         font-size: 14px
         font-weight: normal
 
     time
       position: absolute
-      top: 9px
-      right: 18px
+      top:   $line * .5px
+      right: $line * 1px
       height: 20px
       color: hsl( 0, 0%, 60% )
       font-size: 14px
 
     p
+      margin-top: 54px + $line * .5px
       margin-left: 0
       margin-right: 0
 
@@ -295,6 +301,32 @@ h2
     text-align: center
     font-style: italic
     color: hsl( 0, 0%, 60% )
+
+// @media screen and (min-width: 720px)
+@media screen and (min-width: 45em)
+  #main ol
+    padding: 0
+    border-bottom: 1px solid hsl( 0, 0%, 67% )
+    list-style-type: none
+
+    li
+      position: relative
+      padding: 9px 18px 9px ( 18px * 5 )
+      border-top: 1px solid hsl( 0, 0%, 67% )
+      
+      img
+
+      h3
+        position: static
+        margin-bottom: 9px
+
+        span
+          display: inline
+
+      time
+
+      p
+        margin-top: 0
 
 // Footer
 #main footer

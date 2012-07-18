@@ -77,7 +77,7 @@ header {
 /* line 77, ../webpage.sass */
 h1, h2, h3 {
   margin-top: 0;
-  text-shadow: 0 2px 0 white; }
+  text-shadow: 0 1px 0 white; }
 
 /* line 81, ../webpage.sass */
 h1 {
@@ -86,7 +86,7 @@ h1 {
   line-height: 54px;
   font-size: 48px;
   color: #8e105a;
-  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.6); }
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6); }
 
 /* line 88, ../webpage.sass */
 h2 {
@@ -307,52 +307,79 @@ h2 {
   /* line 252, ../webpage.sass */
   #main ol li {
     position: relative;
-    padding: 9px 18px 9px 90px;
+    padding: 12px 24px;
     border-top: 1px solid #ababab; }
     /* line 257, ../webpage.sass */
     #main ol li img {
       position: absolute;
-      top: 12px;
-      left: 18px; }
-    /* line 262, ../webpage.sass */
+      top: 15px;
+      left: 24px;
+      border-radius: 5px; }
+    /* line 263, ../webpage.sass */
     #main ol li h3 {
+      position: absolute;
+      left: 90px;
       margin-bottom: 9px; }
-      /* line 265, ../webpage.sass */
+      /* line 268, ../webpage.sass */
       #main ol li h3 span {
+        display: block;
+        margin-top: 6px;
         color: #999999;
         font-size: 14px;
         font-weight: normal; }
-    /* line 270, ../webpage.sass */
+    /* line 275, ../webpage.sass */
     #main ol li time {
       position: absolute;
-      top: 9px;
-      right: 18px;
+      top: 12px;
+      right: 24px;
       height: 20px;
       color: #999999;
       font-size: 14px; }
-    /* line 278, ../webpage.sass */
+    /* line 283, ../webpage.sass */
     #main ol li p {
+      margin-top: 66px;
       margin-left: 0;
       margin-right: 0; }
-    /* line 282, ../webpage.sass */
+    /* line 288, ../webpage.sass */
     #main ol li:nth-of-type(2n+1) {
       background: #fafafa; }
-    /* line 285, ../webpage.sass */
+    /* line 291, ../webpage.sass */
     #main ol li.error {
       padding: 18px; }
-      /* line 288, ../webpage.sass */
+      /* line 294, ../webpage.sass */
       #main ol li.error p {
         margin: 0;
         font-style: italic;
         text-align: center; }
-  /* line 293, ../webpage.sass */
+  /* line 299, ../webpage.sass */
   #main ol + p {
     margin-bottom: 18px;
     text-align: center;
     font-style: italic;
     color: #999999; }
 
-/* line 300, ../webpage.sass */
+@media screen and (min-width: 45em) {
+  /* line 307, ../webpage.sass */
+  #main ol {
+    padding: 0;
+    border-bottom: 1px solid #ababab;
+    list-style-type: none; }
+    /* line 312, ../webpage.sass */
+    #main ol li {
+      position: relative;
+      padding: 9px 18px 9px 90px;
+      border-top: 1px solid #ababab; }
+      /* line 319, ../webpage.sass */
+      #main ol li h3 {
+        position: static;
+        margin-bottom: 9px; }
+        /* line 323, ../webpage.sass */
+        #main ol li h3 span {
+          display: inline; }
+      /* line 328, ../webpage.sass */
+      #main ol li p {
+        margin-top: 0; } }
+/* line 332, ../webpage.sass */
 #main footer {
   padding: 12px 0;
   height: 48px;
@@ -371,6 +398,6 @@ h2 {
   background: #fafafa;
   color: #999999;
   text-shadow: 0 1px 0 white; }
-  /* line 310, ../webpage.sass */
+  /* line 342, ../webpage.sass */
   #main footer p:last-child {
     margin-bottom: 0; }
