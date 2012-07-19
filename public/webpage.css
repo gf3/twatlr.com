@@ -49,7 +49,12 @@ body {
 /* line 67, ../webpage.sass */
 a {
   color: #383838;
-  text-decoration: underline; }
+  text-decoration: none;
+  -webkit-transition: color 0.24s ease-out;
+  -moz-transition: color 0.24s ease-out;
+  -ms-transition: color 0.24s ease-out;
+  -o-transition: color 0.24s ease-out;
+  transition: color 0.24s ease-out; }
   /* line 18, ../../../../.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
   a:visited {
     color: #383838; }
@@ -58,28 +63,41 @@ a {
     color: #383838; }
   /* line 24, ../../../../.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
   a:hover {
-    color: #666666; }
+    color: #999999; }
   /* line 27, ../../../../.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
   a:active {
     color: #383838; }
 
-/* line 71, ../webpage.sass */
+/* line 72, ../webpage.sass */
+ol p a, #main section p a {
+  color: #388fdc; }
+  /* line 18, ../../../../.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  ol p a:visited, #main section p a:visited {
+    color: #388fdc; }
+  /* line 24, ../../../../.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  ol p a:hover, #main section p a:hover {
+    color: #006dcc; }
+  /* line 27, ../../../../.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  ol p a:active, #main section p a:active {
+    color: #388fdc; }
+
+/* line 75, ../webpage.sass */
 header {
   padding-top: 36px;
   text-align: center; }
-  /* line 74, ../webpage.sass */
+  /* line 78, ../webpage.sass */
   header a {
     text-decoration: none; }
     /* line 4, ../../../../.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_hover-link.scss */
     header a:hover {
       text-decoration: underline; }
 
-/* line 77, ../webpage.sass */
+/* line 81, ../webpage.sass */
 h1, h2, h3 {
   margin-top: 0;
   text-shadow: 0 1px 0 white; }
 
-/* line 81, ../webpage.sass */
+/* line 85, ../webpage.sass */
 h1 {
   font-family: "Permanent Marker", cursive;
   font-weight: 400;
@@ -88,13 +106,13 @@ h1 {
   color: #8e105a;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6); }
 
-/* line 88, ../webpage.sass */
+/* line 92, ../webpage.sass */
 h2 {
   margin: 0 0 18px 0;
   font-size: 24px;
   line-height: 36px; }
 
-/* line 94, ../webpage.sass */
+/* line 98, ../webpage.sass */
 #main {
   position: relative;
   margin-bottom: 48px;
@@ -103,31 +121,31 @@ h2 {
   border-radius: 5px;
   background: #ececec;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
-  /* line 104, ../webpage.sass */
+  /* line 108, ../webpage.sass */
   #main > section > h2, #main > section > p {
     text-align: center; }
-  /* line 107, ../webpage.sass */
+  /* line 111, ../webpage.sass */
   #main h2 {
     margin-left: 12px;
     margin-right: 12px; }
-    /* line 111, ../webpage.sass */
+    /* line 115, ../webpage.sass */
     #main h2 + p {
       margin-top: -12px;
       color: #999999; }
-  /* line 115, ../webpage.sass */
+  /* line 119, ../webpage.sass */
   #main p {
     margin-top: 0;
     margin-right: 12px;
     margin-bottom: 12px;
     margin-left: 12px; }
-  /* line 122, ../webpage.sass */
+  /* line 126, ../webpage.sass */
   #main label {
     position: relative;
     display: block;
     margin-bottom: 18px;
-    margin-left: -2px;
+    margin-left: -1%;
     padding: 9px 0;
-    width: 642px;
+    width: 102%;
     border-right: 1px solid rgba(255, 255, 255, 0.3);
     border-left: 1px solid rgba(255, 255, 255, 0.3);
     -moz-border-radius-topleft: 3px;
@@ -146,7 +164,7 @@ h2 {
     text-align: center;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 1px 2px rgba(0, 0, 0, 0.6); }
-    /* line 139, ../webpage.sass */
+    /* line 143, ../webpage.sass */
     #main label::before, #main label::after {
       content: " ";
       position: absolute;
@@ -156,7 +174,7 @@ h2 {
       height: 36px;
       border: 0;
       background: #17819b; }
-    /* line 149, ../webpage.sass */
+    /* line 153, ../webpage.sass */
     #main label::before {
       left: -37px;
       box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.6);
@@ -171,7 +189,7 @@ h2 {
       -ms-transform: skewY(7deg);
       -o-transform: skewY(7deg);
       transform: skewY(7deg); }
-    /* line 155, ../webpage.sass */
+    /* line 159, ../webpage.sass */
     #main label::after {
       right: -37px;
       box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
@@ -186,10 +204,10 @@ h2 {
       -ms-transform: skewY(-7deg);
       -o-transform: skewY(-7deg);
       transform: skewY(-7deg); }
-  /* line 161, ../webpage.sass */
+  /* line 165, ../webpage.sass */
   #main label.error {
     background: #cd491d; }
-    /* line 164, ../webpage.sass */
+    /* line 168, ../webpage.sass */
     #main label.error::before {
       background: #9c3816;
       background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #cd491d), color-stop(100%, #9c3816));
@@ -198,7 +216,7 @@ h2 {
       background-image: -o-linear-gradient(left, #cd491d, #9c3816);
       background-image: -ms-linear-gradient(left, #cd491d, #9c3816);
       background-image: linear-gradient(left, #cd491d, #9c3816); }
-    /* line 168, ../webpage.sass */
+    /* line 172, ../webpage.sass */
     #main label.error::after {
       background: #9c3816;
       background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #9c3816), color-stop(100%, #cd491d));
@@ -209,28 +227,33 @@ h2 {
       background-image: linear-gradient(left, #9c3816, #cd491d); }
 
 @media screen and (min-width: 45em) {
-  /* line 174, ../webpage.sass */
+  /* line 179, ../webpage.sass */
+  #main label {
+    margin-left: -2px;
+    width: 644px; } }
+@media screen and (min-width: 45em) {
+  /* line 185, ../webpage.sass */
   body {
     padding-right: 0;
     padding-left: 0; }
 
-  /* line 179, ../webpage.sass */
+  /* line 190, ../webpage.sass */
   header {
     text-align: left; }
 
-  /* line 182, ../webpage.sass */
+  /* line 193, ../webpage.sass */
   header, #main {
     width: 640px;
     margin-right: auto;
     margin-left: auto; }
 
-  /* line 190, ../webpage.sass */
+  /* line 201, ../webpage.sass */
   #main > section > h2, #main > section > p {
     text-align: left; } }
-/* line 195, ../webpage.sass */
+/* line 206, ../webpage.sass */
 #main form input:focus {
   outline: 3px solid #f8e65e; }
-/* line 198, ../webpage.sass */
+/* line 209, ../webpage.sass */
 #main form input[type=url] {
   display: block;
   margin-bottom: 24px;
@@ -246,13 +269,13 @@ h2 {
   font-size: 28px;
   background: white;
   color: black; }
-  /* line 214, ../webpage.sass */
+  /* line 225, ../webpage.sass */
   #main form input[type=url]:invalid {
     color: red; }
-  /* line 217, ../webpage.sass */
+  /* line 228, ../webpage.sass */
   #main form input[type=url]:focus {
     color: black; }
-/* line 220, ../webpage.sass */
+/* line 231, ../webpage.sass */
 #main form input[type=submit] {
   position: absolute;
   bottom: 0;
@@ -279,7 +302,7 @@ h2 {
   font-weight: bold;
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6); }
-  /* line 238, ../webpage.sass */
+  /* line 249, ../webpage.sass */
   #main form input[type=submit]:hover, #main form input[type=submit]:focus {
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #8e105a), color-stop(50%, #8e105a), color-stop(50%, #600b3d));
     background-image: -webkit-linear-gradient(#8e105a, #8e105a 50%, #600b3d 50%);
@@ -287,7 +310,7 @@ h2 {
     background-image: -o-linear-gradient(#8e105a, #8e105a 50%, #600b3d 50%);
     background-image: -ms-linear-gradient(#8e105a, #8e105a 50%, #600b3d 50%);
     background-image: linear-gradient(#8e105a, #8e105a 50%, #600b3d 50%); }
-  /* line 240, ../webpage.sass */
+  /* line 251, ../webpage.sass */
   #main form input[type=submit]:active {
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d9d9d9), color-stop(50%, #d9d9d9), color-stop(50%, #b2b2b2));
     background-image: -webkit-linear-gradient(#d9d9d9, #d9d9d9 50%, #b2b2b2 50%);
@@ -295,39 +318,38 @@ h2 {
     background-image: -o-linear-gradient(#d9d9d9, #d9d9d9 50%, #b2b2b2 50%);
     background-image: -ms-linear-gradient(#d9d9d9, #d9d9d9 50%, #b2b2b2 50%);
     background-image: linear-gradient(#d9d9d9, #d9d9d9 50%, #b2b2b2 50%); }
-/* line 243, ../webpage.sass */
+/* line 254, ../webpage.sass */
 #main form + p:last-of-type {
   margin-bottom: 24px; }
 
-/* line 247, ../webpage.sass */
+/* line 258, ../webpage.sass */
 #main ol {
   padding: 0;
-  border-bottom: 1px solid #ababab;
+  border-bottom: 1px solid #c4c4c4;
   list-style-type: none; }
-  /* line 252, ../webpage.sass */
+  /* line 263, ../webpage.sass */
   #main ol li {
     position: relative;
     padding: 12px;
-    border-top: 1px solid #ababab; }
-    /* line 257, ../webpage.sass */
+    border-top: 1px solid #c4c4c4; }
+    /* line 268, ../webpage.sass */
     #main ol li img {
       position: absolute;
       top: 15px;
       left: 12px;
       border-radius: 5px; }
-    /* line 263, ../webpage.sass */
+    /* line 274, ../webpage.sass */
     #main ol li h3 {
       position: absolute;
       left: 78px;
-      margin-bottom: 9px; }
-      /* line 268, ../webpage.sass */
+      margin: 6px 0; }
+      /* line 279, ../webpage.sass */
       #main ol li h3 span {
         display: block;
-        margin-top: 6px;
         color: #999999;
         font-size: 14px;
         font-weight: normal; }
-    /* line 275, ../webpage.sass */
+    /* line 285, ../webpage.sass */
     #main ol li time {
       position: absolute;
       top: 12px;
@@ -335,23 +357,23 @@ h2 {
       height: 20px;
       color: #999999;
       font-size: 14px; }
-    /* line 283, ../webpage.sass */
+    /* line 293, ../webpage.sass */
     #main ol li p {
       margin-top: 66px;
       margin-left: 0;
       margin-right: 0; }
-    /* line 288, ../webpage.sass */
+    /* line 298, ../webpage.sass */
     #main ol li:nth-of-type(2n+1) {
       background: #fafafa; }
-    /* line 291, ../webpage.sass */
+    /* line 301, ../webpage.sass */
     #main ol li.error {
       padding: 18px; }
-      /* line 294, ../webpage.sass */
+      /* line 304, ../webpage.sass */
       #main ol li.error p {
         margin: 0;
         font-style: italic;
         text-align: center; }
-  /* line 299, ../webpage.sass */
+  /* line 309, ../webpage.sass */
   #main ol + p {
     margin-bottom: 18px;
     text-align: center;
@@ -359,31 +381,25 @@ h2 {
     color: #999999; }
 
 @media screen and (min-width: 45em) {
-  /* line 307, ../webpage.sass */
-  #main ol {
-    padding: 0;
-    border-bottom: 1px solid #ababab;
-    list-style-type: none; }
-    /* line 312, ../webpage.sass */
-    #main ol li {
-      padding: 12px 24px 12px 90px; }
-      /* line 315, ../webpage.sass */
-      #main ol li img {
-        left: 24px; }
-      /* line 318, ../webpage.sass */
-      #main ol li h3 {
-        position: static;
-        margin-bottom: 9px; }
-        /* line 322, ../webpage.sass */
-        #main ol li h3 span {
-          display: inline; }
-      /* line 325, ../webpage.sass */
-      #main ol li time {
-        right: 24px; }
-      /* line 328, ../webpage.sass */
-      #main ol li p {
-        margin-top: 0; } }
-/* line 332, ../webpage.sass */
+  /* line 318, ../webpage.sass */
+  #main ol li {
+    padding: 12px 24px 12px 90px; }
+    /* line 321, ../webpage.sass */
+    #main ol li img {
+      left: 24px; }
+    /* line 324, ../webpage.sass */
+    #main ol li h3 {
+      position: static; }
+      /* line 327, ../webpage.sass */
+      #main ol li h3 span {
+        display: inline; }
+    /* line 330, ../webpage.sass */
+    #main ol li time {
+      right: 24px; }
+    /* line 333, ../webpage.sass */
+    #main ol li p {
+      margin-top: 0; } }
+/* line 337, ../webpage.sass */
 #main footer {
   padding: 12px 0;
   height: 48px;
@@ -401,7 +417,13 @@ h2 {
   background-clip: padding-box;
   background: #fafafa;
   color: #999999;
+  font-size: 10px;
   text-shadow: 0 1px 0 white; }
-  /* line 342, ../webpage.sass */
+  /* line 348, ../webpage.sass */
   #main footer p:last-child {
     margin-bottom: 0; }
+
+@media screen and (min-width: 45em) {
+  /* line 353, ../webpage.sass */
+  #main footer {
+    font-size: 1em; } }
