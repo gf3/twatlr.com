@@ -5,7 +5,7 @@ var ago = (function(){
     , hours:                60 * 60 * 1000
     , days:            24 * 60 * 60 * 1000
     , weeks:       7 * 24 * 60 * 60 * 1000
-    , months: 30 * 7 * 24 * 60 * 60 * 1000
+    , months:     30 * 24 * 60 * 60 * 1000
     , years:     365 * 24 * 60 * 60 * 1000 }
 
   return ago
