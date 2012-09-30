@@ -86,7 +86,7 @@
 
 ; Render a tweet to HTML
 (define (tweet->string tweet)
-  (if (hash-ref tweet 'error #f)
+  (if (hash-ref tweet 'errors #f)
     (template->string tweet-error-tmpl #hash())
     (template->string tweet-tmpl (tweet->tmpl-hash tweet))))
 
@@ -102,7 +102,7 @@
 
 ; Get the user's name for a given tweet
 (define (get-user-name tweet)
-  (if (hash-ref tweet 'error #f)
+  (if (hash-ref tweet 'errors #f)
     #\nul
     (hash-ref (hash-ref tweet 'user) 'name)))
 
