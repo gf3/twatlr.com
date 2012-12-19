@@ -39,12 +39,14 @@
   (if (extract-id t)
     (if (hash-has-key? (get-tweet t) 'error)
       (not-found req)
-      (render view-thread-tmpl (hash "content" (thread->string (get-thread t)))))
+      (let ([th (get-thread t)])
+        (render view-thread-tmpl (hash "thread" th "content" (thread->string th)))))
     (not-found req)))
 
 ; 404 responder
 (define (not-found req)
-  (render home-page-tmpl (hash "labelclass" "error"
+  (render home-page-tmpl (hash "summary"    "Conversation not found :-("
+                               "labelclass" "error"
                                "labeltext"  "Not found &mdash; Try again :(")))
 
 ; Templates
@@ -58,16 +60,19 @@
 
 ; Render view
 (define (render tmpl [data (hash)])
-  (let ([output (template->string tmpl (hash-set data "head" (template->string head-tmpl (hash))))])
-    (response/full
-      200 #"Okay"
-      (current-seconds) TEXT/HTML-MIME-TYPE
-      (list (make-header #"X-LOL" #"NO U"))
-      (list (string->bytes/utf-8 output)))))
+  (let ([summary (if (hash-ref data "summary" #f)
+                   (hash-ref data "summary")
+                   (thread->summary (hash-ref data "thread" #f)))])
+    (let ([output (template->string tmpl (hash-set data "head" (template->string head-tmpl (hash "summary" summary))))])
+      (response/full
+        200 #"Okay"
+        (current-seconds) TEXT/HTML-MIME-TYPE
+        (list (make-header #"X-LOL" #"NO U"))
+        (list (string->bytes/utf-8 output))))))
 
 ; Render 404
 (define (render-404 tmpl [data (hash)])
-  (let ([output (template->string tmpl data)])
+  (let ([output (template->string tmpl (hash-set data "summary" "Conversation not found :-("))])
     (response/full
       404 #"Not Found"
       (current-seconds) TEXT/HTML-MIME-TYPE
@@ -83,6 +88,16 @@
       "tweets"    (foldr string-append
                     ""
                     (map tweet->string (reverse thread))))))
+
+; Render a thread to a summary string
+(define (thread->summary thread)
+  (if (not thread)
+    "Share Twitter Conversations"
+    (string-join
+      (list (number->string (length thread))
+            "tweets between"
+            (string-join (remove-duplicates (filter string? (map get-user-name thread))) ", "))
+      " ")))
 
 ; Render a tweet to HTML
 (define (tweet->string tweet)

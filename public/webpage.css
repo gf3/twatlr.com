@@ -32,7 +32,7 @@ body {
 @media screen and (min-width: 40em) {
   /* line 44, ../webpage.sass */
   body {
-    font-size: 1.063em; } }
+    font-size: 1.0625em; } }
 @media screen and (min-width: 45em) {
   /* line 50, ../webpage.sass */
   body {
@@ -40,7 +40,7 @@ body {
 @media screen and (min-width: 75em) {
   /* line 56, ../webpage.sass */
   body {
-    font-size: 1.063em; } }
+    font-size: 1.0625em; } }
 @media screen and (min-width: 130em) {
   /* line 62, ../webpage.sass */
   body {
@@ -52,32 +52,31 @@ a {
   text-decoration: none;
   -webkit-transition: color 0.24s ease-out;
   -moz-transition: color 0.24s ease-out;
-  -ms-transition: color 0.24s ease-out;
   -o-transition: color 0.24s ease-out;
   transition: color 0.24s ease-out; }
-  /* line 18, ../../../../.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  /* line 18, ../../../../.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
   a:visited {
     color: #383838; }
-  /* line 21, ../../../../.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  /* line 21, ../../../../.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
   a:focus {
     color: #383838; }
-  /* line 24, ../../../../.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  /* line 24, ../../../../.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
   a:hover {
     color: #999999; }
-  /* line 27, ../../../../.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  /* line 27, ../../../../.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
   a:active {
     color: #383838; }
 
 /* line 72, ../webpage.sass */
 ol p a, #main section p a {
   color: #388fdc; }
-  /* line 18, ../../../../.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  /* line 18, ../../../../.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
   ol p a:visited, #main section p a:visited {
     color: #388fdc; }
-  /* line 24, ../../../../.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  /* line 24, ../../../../.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
   ol p a:hover, #main section p a:hover {
     color: #006dcc; }
-  /* line 27, ../../../../.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+  /* line 27, ../../../../.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
   ol p a:active, #main section p a:active {
     color: #388fdc; }
 
@@ -88,7 +87,7 @@ header {
   /* line 78, ../webpage.sass */
   header a {
     text-decoration: none; }
-    /* line 4, ../../../../.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/typography/links/_hover-link.scss */
+    /* line 4, ../../../../.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_hover-link.scss */
     header a:hover {
       text-decoration: underline; }
 
@@ -150,13 +149,9 @@ h2 {
     border-left: 1px solid rgba(255, 255, 255, 0.3);
     -moz-border-radius-topleft: 3px;
     -webkit-border-top-left-radius: 3px;
-    -ms-border-top-left-radius: 3px;
-    -o-border-top-left-radius: 3px;
     border-top-left-radius: 3px;
     -moz-border-radius-topright: 3px;
     -webkit-border-top-right-radius: 3px;
-    -ms-border-top-right-radius: 3px;
-    -o-border-top-right-radius: 3px;
     border-top-right-radius: 3px;
     background: #1ea9cc;
     color: white;
@@ -182,7 +177,6 @@ h2 {
       background-image: -webkit-linear-gradient(left, #1ea9cc, #17819b);
       background-image: -moz-linear-gradient(left, #1ea9cc, #17819b);
       background-image: -o-linear-gradient(left, #1ea9cc, #17819b);
-      background-image: -ms-linear-gradient(left, #1ea9cc, #17819b);
       background-image: linear-gradient(left, #1ea9cc, #17819b);
       -webkit-transform: skewY(7deg);
       -moz-transform: skewY(7deg);
@@ -197,7 +191,6 @@ h2 {
       background-image: -webkit-linear-gradient(left, #17819b, #1ea9cc);
       background-image: -moz-linear-gradient(left, #17819b, #1ea9cc);
       background-image: -o-linear-gradient(left, #17819b, #1ea9cc);
-      background-image: -ms-linear-gradient(left, #17819b, #1ea9cc);
       background-image: linear-gradient(left, #17819b, #1ea9cc);
       -webkit-transform: skewY(-7deg);
       -moz-transform: skewY(-7deg);
@@ -214,7 +207,6 @@ h2 {
       background-image: -webkit-linear-gradient(left, #cd491d, #9c3816);
       background-image: -moz-linear-gradient(left, #cd491d, #9c3816);
       background-image: -o-linear-gradient(left, #cd491d, #9c3816);
-      background-image: -ms-linear-gradient(left, #cd491d, #9c3816);
       background-image: linear-gradient(left, #cd491d, #9c3816); }
     /* line 172, ../webpage.sass */
     #main label.error::after {
@@ -223,7 +215,6 @@ h2 {
       background-image: -webkit-linear-gradient(left, #9c3816, #cd491d);
       background-image: -moz-linear-gradient(left, #9c3816, #cd491d);
       background-image: -o-linear-gradient(left, #9c3816, #cd491d);
-      background-image: -ms-linear-gradient(left, #9c3816, #cd491d);
       background-image: linear-gradient(left, #9c3816, #cd491d); }
 
 @media screen and (min-width: 45em) {
@@ -289,15 +280,12 @@ h2 {
   border-radius: 0;
   -moz-border-radius-bottomright: 5px;
   -webkit-border-bottom-right-radius: 5px;
-  -ms-border-bottom-right-radius: 5px;
-  -o-border-bottom-right-radius: 5px;
   border-bottom-right-radius: 5px;
   box-sizing: content-box;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bc1576), color-stop(50%, #bc1576), color-stop(50%, #8e105a));
   background-image: -webkit-linear-gradient(#bc1576, #bc1576 50%, #8e105a 50%);
   background-image: -moz-linear-gradient(#bc1576, #bc1576 50%, #8e105a 50%);
   background-image: -o-linear-gradient(#bc1576, #bc1576 50%, #8e105a 50%);
-  background-image: -ms-linear-gradient(#bc1576, #bc1576 50%, #8e105a 50%);
   background-image: linear-gradient(#bc1576, #bc1576 50%, #8e105a 50%);
   font-weight: bold;
   color: white;
@@ -308,7 +296,6 @@ h2 {
     background-image: -webkit-linear-gradient(#8e105a, #8e105a 50%, #600b3d 50%);
     background-image: -moz-linear-gradient(#8e105a, #8e105a 50%, #600b3d 50%);
     background-image: -o-linear-gradient(#8e105a, #8e105a 50%, #600b3d 50%);
-    background-image: -ms-linear-gradient(#8e105a, #8e105a 50%, #600b3d 50%);
     background-image: linear-gradient(#8e105a, #8e105a 50%, #600b3d 50%); }
   /* line 251, ../webpage.sass */
   #main form input[type=submit]:active {
@@ -316,7 +303,6 @@ h2 {
     background-image: -webkit-linear-gradient(#d9d9d9, #d9d9d9 50%, #b2b2b2 50%);
     background-image: -moz-linear-gradient(#d9d9d9, #d9d9d9 50%, #b2b2b2 50%);
     background-image: -o-linear-gradient(#d9d9d9, #d9d9d9 50%, #b2b2b2 50%);
-    background-image: -ms-linear-gradient(#d9d9d9, #d9d9d9 50%, #b2b2b2 50%);
     background-image: linear-gradient(#d9d9d9, #d9d9d9 50%, #b2b2b2 50%); }
 /* line 254, ../webpage.sass */
 #main form + p:last-of-type {
@@ -406,13 +392,9 @@ h2 {
   border-top: 1px solid #ababab;
   -moz-border-radius-bottomleft: 5px;
   -webkit-border-bottom-left-radius: 5px;
-  -ms-border-bottom-left-radius: 5px;
-  -o-border-bottom-left-radius: 5px;
   border-bottom-left-radius: 5px;
   -moz-border-radius-bottomright: 5px;
   -webkit-border-bottom-right-radius: 5px;
-  -ms-border-bottom-right-radius: 5px;
-  -o-border-bottom-right-radius: 5px;
   border-bottom-right-radius: 5px;
   background-clip: padding-box;
   background: #fafafa;
