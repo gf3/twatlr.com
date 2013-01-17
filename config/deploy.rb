@@ -11,7 +11,7 @@ role :app, '208.68.37.29'
 
 namespace :deploy do
   task :restart, roles: :app, except: { no_release: true } do
-    run 'ps aux | grep app.rkt | awk "{print $2}" | xargs kill; true'
+    run 'ps aux | grep app.rkt | awk \'{print $2}\' | xargs kill; true'
     run 'nohup /usr/local/bin/racket %s/app.rkt > /dev/null 2>&1 &' % release_path
   end
 end
