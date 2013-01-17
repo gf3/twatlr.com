@@ -9,10 +9,13 @@ set :git_enable_submodules, 1
 role :web, '208.68.37.29'
 role :app, '208.68.37.29'
 
+after 'deploy', 'deploy:restart'
+
 namespace :deploy do
   task :restart, roles: :app, except: { no_release: true } do
-    run 'ps aux | grep app.rkt | awk \'{print $2}\' | xargs kill; true'
-    run 'nohup /usr/local/bin/racket %s/app.rkt > /dev/null 2>&1 &' % release_path
+    pid_file = '%s/app.pid' % previous_release
+    run '[ -f %1$s ] && kill $(cat %1$s); true' % pid_file
+    run 'nohup /usr/bin/env racket %s/app.rkt > /dev/null 2>&1 &' % release_path
   end
 end
 
